@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Font Preview - Priselle</title>
+
+  <!-- Load all font options -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@300;400;500;600;700;800&family=Raleway:wght@300;400;500;600;700;800&family=Urbanist:wght@300;400;500;600;700;800&family=Sora:wght@300;400;500;600;700;800&family=Lexend:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 50px;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    .header h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: 2.5rem;
+      color: #1e293b;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      font-family: 'Inter', sans-serif;
+      color: #64748b;
+      font-size: 1.1rem;
+    }
+
+    .font-card {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .font-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+    }
+
+    .font-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .font-name {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #3b82f6;
+    }
+
+    .font-category {
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 8px 16px;
+      border-radius: 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .sample-text {
+      margin-bottom: 25px;
+    }
+
+    .heading-sample {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin-bottom: 15px;
+      line-height: 1.2;
+    }
+
+    .subheading-sample {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #475569;
+      margin-bottom: 15px;
+    }
+
+    .body-sample {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #64748b;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .numbers-sample {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #3b82f6;
+      margin-bottom: 15px;
+    }
+
+    .button-sample {
+      display: inline-block;
+      padding: 14px 32px;
+      background: linear-gradient(135deg, #3b82f6, #6366f1);
+      color: white;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+      gap: 30px;
+    }
+
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .heading-sample {
+        font-size: 2rem;
+      }
+
+      .font-header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+    }
+
+    .current-badge {
+      background: #10b981;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-left: 10px;
+    }
+
+    .instructions {
+      background: #fef3c7;
+      border-left: 4px solid #f59e0b;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .instructions h3 {
+      color: #92400e;
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .instructions p {
+      color: #78350f;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Font Preview for Priselle Sourcing and Trade</h1>
+      <p>Click on any font card to see how it looks across your entire website</p>
+    </div>
+
+    <div class="instructions">
+      <h3>📌 How to Choose:</h3>
+      <p>
+        1. Scroll through each font preview below<br>
+        2. Look at headings, body text, and numbers to see readability<br>
+        3. Consider your brand personality (professional, modern, friendly, bold)<br>
+        4. Let me know which font number you prefer (or the font name)
+      </p>
+    </div>
+
+    <div class="grid">
+      <!-- Inter (Original) -->
+      <div class="font-card" onclick="alert('Inter - Professional & Clean\n\nNeutral, highly readable, industry standard.\nGreat for corporate and tech websites.')">
+        <div class="font-header">
+          <span class="font-name">1. Inter <span class="current-badge">ORIGINAL</span></span>
+          <span class="font-category">Professional & Clean</span>
+        </div>
+        <div class="sample-text" style="font-family: 'Inter', sans-serif;">
+          <div class="heading-sample">Priselle Sourcing and Trade</div>
+          <div class="subheading-sample">Your Trusted Partner in China</div>
+          <div class="body-sample">
+            We connect global businesses with premium Chinese manufacturers. Quality products, competitive prices, reliable partnerships.
+          </div>
+          <div class="numbers-sample">500+ Projects | 1000+ Suppliers</div>
+          <span class="button-sample">Get Started</span>
+          <span class="button-sample">Contact Us</span>
+        </div>
+      </div>
+
+      <!-- Outfit (Current) -->
+      <div class="font-card" onclick="alert('Outfit - Stylish & Modern\n\nModern geometric design with rounded edges.\nFriendly yet professional.')">
+        <div class="font-header">
+          <span class="font-name">2. Outfit <span class="current-badge">CURRENT</span></span>
+          <span class="font-category">Stylish & Modern</span>
+        </div>
+        <div class="sample-text" style="font-family: 'Outfit', sans-serif;">
+          <div class="heading-sample">Priselle Sourcing and Trade</div>
+          <div class="subheading-sample">Your Trusted Partner in China</div>
+          <div class="body-sample">
+            We connect global businesses with premium Chinese manufacturers. Quality products, competitive prices, reliable partnerships.
+          </div>
+          <div class="numbers-sample">500+ Projects | 1000+ Suppliers</div>
+          <span class="button-sample">Get Started</span>
+          <span class="button-sample">Contact Us</span>
+        </div>
+      </div>
+
+      <!-- Plus Jakarta Sans -->
+      <div class="font-card" onclick="alert('Plus Jakarta Sans - Professional & Clean\n\nModern, friendly, and professional.\nExcellent readability.')">
+        <div class="font-header">
+          <span class="font-name">3. Plus Jakarta Sans</span>
+          <span class="font-category">Professional & Clean</span>
+        </div>
+        <div class="sample-text" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+          <div class="heading-sample">Priselle Sourcing and Trade</div>
+          <div class="subheading-sample">Your Trusted Partner in China</div>
+          <div class="body-sample">
+            We connect global businesses with premium Chinese manufacturers. Quality products, competitive prices, reliable partnerships.
+          </div>
+          <div class="numbers-sample">500+ Projects | 1000+ Suppliers</div>
+          <span class="button-sample">Get Started</span>
+          <span class="button-sample">Contact Us</span>
+        </div>
+      </div>
+
+      <!-- Manrope -->
+      <div class="font-card" onclick="alert('Manrope - Professional & Clean\n\nGeometric and elegant.\nModern with excellent readability.')">
+        <div class="font-header">
+          <span class="font-name">4. Manrope</span>
+          <span class="font-category">Professional & Clean</span>
+        </div>
+        <div class="sample-text" style="font-family: 'Manrope', sans-serif;">
+          <div class="heading-sample">Priselle Sourcing and Trade</div>
+          <div class="subheading-sample">Your Trusted Partner in China</div>
+          <div class="body-sample">
+            We connect global businesses with premium Chinese manufacturers. Quality products, competitive prices, reliable partnerships.
+          </div>
+          <div class="numbers-sample">500+ Projects | 1000+ Suppliers</div>
+          <span class="button-sample">Get Started</span>
+          <span class="button-sample">Contact Us</span>
+        </div>
+      </div>
+
+      <!-- Poppins -->
+      <div class="font-card" onclick="alert('Poppins - Stylish & Modern\n\nRounded, friendly, very popular.\nGreat for modern brands.')">
+        <div class="font-header">
+          <span class="font-name">5. Poppins</span>
+          <span class="font-category">Stylish & Modern</span>
+        </div>
+        <div class="sample-text" style="font-family: 'Poppins', sans-serif;">
+          <div class="heading-sample">Priselle Sourcing and Trade</div>
+          <div class="subheading-sample">Your Trusted Partner in China</div>
+          <div class="body-sample">
+            We connect global businesses with premium Chinese manufacturers. Quality products, competitive prices, reliable partnerships.
+          </div>
+          <div class="numbers-sample">500+ Projects | 1000+ Suppliers</div>
+          <span class="button-sample">Get Started</span>
+          <span class="button-sample">Contact Us</span>
+        </div>
+      </div>
+
+      <!-- Space Grotesk -->
+      <div class="font-card" onclick="alert('Space Grotesk - Stylish & Modern\n\nUnique, tech-forward design.\nPerfect for innovative brands.')">
+        <div class="font-header">
+          <span class="font-name">6. Space Grotesk</span>
+          <span class="font-category">Stylish & Modern</span>
+        </div>
+        <div class="sample-text" style="font-family: 'Space Grotesk', sans-serif;">
+          <div class="heading-sample">Priselle Sourcing and Trade</div>
+          <div class="subheading-sample">Your Trusted Partner in China</div>
+          <div class="body-sample">
+            We connect global businesses with premium Chinese manufacturers. Quality products, competitive prices, reliable partnerships.
+          </div>
+          <div class="numbers-sample">500+ Projects | 1000+ Suppliers</div>
+          <span class="button-sample">Get Started</span>
+          <span class="button-sample">Contact Us</span>
+        </div>
+      </div>
+
+      <!-- DM Sans -->
+      <div class="font-card" onclick="alert('DM Sans - Stylish & Modern\n\nClean, contemporary design.\nExcellent for digital products.')">
+        <div class="font-header">
+          <span class="font-name">7. DM Sans</span>
+          <span class="font-category">Stylish & Modern</span>
+        </div>
+        <div class="sample-text" style="font-family: 'DM Sans', sans-serif;">
+          <div class="heading-sample">Priselle Sourcing and Trade</div>
+          <div class="subheading-sample">Your Trusted Partner in China</div>
+          <div class="body-sample">
+            We connect global businesses with premium Chinese manufacturers. Quality products, competitive prices, reliable partnerships.
+          </div>
+          <div class="numbers-sample">500+ Projects | 1000+ Suppliers</div>
+          <span class="button-sample">Get Started</span>
+          <span class="button-sample">Contact Us</span>
+        </div>
+      </div>
+
+      <!-- Montserrat -->
+      <div class="font-card" onclick="alert('Montserrat - Elegant & Sophisticated\n\nClassic elegance inspired by urban typography.\nTimeless and refined.')">
+        <div class="font-header">
+          <span class="font-name">8. Montserrat</span>
+          <span class="font-category">Elegant & Sophisticated</span>
+        </div>
+        <div class="sample-text" style="font-family: 'Montserrat', sans-serif;">
+          <div class="heading-sample">Priselle Sourcing and Trade</div>
+          <div class="subheading-sample">Your Trusted Partner in China</div>
+          <div class="body-sample">
+            We connect global businesses with premium Chinese manufacturers. Quality products, competitive prices, reliable partnerships.
+          </div>
+          <div class="numbers-sample">500+ Projects | 1000+ Suppliers</div>
+          <span class="button-sample">Get Started</span>
+          <span class="button-sample">Contact Us</span>
+        </div>
+      </div>
+
+      <!-- Raleway -->
+      <div class="font-card" onclick="alert('Raleway - Elegant & Sophisticated\n\nThin, sophisticated letterforms.\nGreat for luxury brands.')">
+        <div class="font-header">
+          <span class="font-name">9. Raleway</span>
+          <span class="font-category">Elegant & Sophisticated</span>
+        </div>
+        <div class="sample-text" style="font-family: 'Raleway', sans-serif;">
+          <div class="heading-sample">Priselle Sourcing and Trade</div>
+          <div class="subheading-sample">Your Trusted Partner in China</div>
+          <div class="body-sample">
+            We connect global businesses with premium Chinese manufacturers. Quality products, competitive prices, reliable partnerships.
+          </div>
+          <div class="numbers-sample">500+ Projects | 1000+ Suppliers</div>
+          <span class="button-sample">Get Started</span>
+          <span class="button-sample">Contact Us</span>
+        </div>
+      </div>
+
+      <!-- Urbanist -->
+      <div class="font-card" onclick="alert('Urbanist - Elegant & Sophisticated\n\nModern luxury aesthetic.\nSleek and contemporary.')">
+        <div class="font-header">
+          <span class="font-name">10. Urbanist</span>
+          <span class="font-category">Elegant & Sophisticated</span>
+        </div>
+        <div class="sample-text" style="font-family: 'Urbanist', sans-serif;">
+          <div class="heading-sample">Priselle Sourcing and Trade</div>
+          <div class="subheading-sample">Your Trusted Partner in China</div>
+          <div class="body-sample">
+            We connect global businesses with premium Chinese manufacturers. Quality products, competitive prices, reliable partnerships.
+          </div>
+          <div class="numbers-sample">500+ Projects | 1000+ Suppliers</div>
+          <span class="button-sample">Get Started</span>
+          <span class="button-sample">Contact Us</span>
+        </div>
+      </div>
+
+      <!-- Sora -->
+      <div class="font-card" onclick="alert('Sora - Bold & Strong\n\nGeometric, confident letterforms.\nPerfect for making a statement.')">
+        <div class="font-header">
+          <span class="font-name">11. Sora</span>
+          <span class="font-category">Bold & Strong</span>
+        </div>
+        <div class="sample-text" style="font-family: 'Sora', sans-serif;">
+          <div class="heading-sample">Priselle Sourcing and Trade</div>
+          <div class="subheading-sample">Your Trusted Partner in China</div>
+          <div class="body-sample">
+            We connect global businesses with premium Chinese manufacturers. Quality products, competitive prices, reliable partnerships.
+          </div>
+          <div class="numbers-sample">500+ Projects | 1000+ Suppliers</div>
+          <span class="button-sample">Get Started</span>
+          <span class="button-sample">Contact Us</span>
+        </div>
+      </div>
+
+      <!-- Lexend -->
+      <div class="font-card" onclick="alert('Lexend - Bold & Strong\n\nScientifically designed for readability.\nExcellent for accessibility.')">
+        <div class="font-header">
+          <span class="font-name">12. Lexend</span>
+          <span class="font-category">Bold & Strong</span>
+        </div>
+        <div class="sample-text" style="font-family: 'Lexend', sans-serif;">
+          <div class="heading-sample">Priselle Sourcing and Trade</div>
+          <div class="subheading-sample">Your Trusted Partner in China</div>
+          <div class="body-sample">
+            We connect global businesses with premium Chinese manufacturers. Quality products, competitive prices, reliable partnerships.
+          </div>
+          <div class="numbers-sample">500+ Projects | 1000+ Suppliers</div>
+          <span class="button-sample">Get Started</span>
+          <span class="button-sample">Contact Us</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="header" style="margin-top: 50px;">
+      <h1>🎨 Ready to Choose?</h1>
+      <p>Let me know which font number (1-12) or font name you prefer, and I'll update your website immediately!</p>
+    </div>
+  </div>
+</body>
+</html>

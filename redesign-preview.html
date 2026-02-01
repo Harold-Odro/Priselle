@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Priselle Redesign Preview - Navy + Gold Corporate</title>
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      /* New Premium Corporate Colors */
+      --primary: #1E3A5F;
+      --primary-dark: #152942;
+      --primary-light: #2C5282;
+
+      --accent: #B8860B;
+      --accent-dark: #9A7209;
+      --accent-light: #DAA520;
+
+      --gray-50: #F8FAFC;
+      --gray-100: #F1F5F9;
+      --gray-200: #E2E8F0;
+      --gray-300: #CBD5E1;
+      --gray-600: #475569;
+      --gray-700: #334155;
+      --gray-900: #0F172A;
+
+      --bg-primary: #FFFFFF;
+      --bg-secondary: #F8FAFC;
+      --bg-accent: #FFF9F0;
+
+      --success: #059669;
+      --action: #2563EB;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: #f0f0f0;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    .preview-container {
+      max-width: 1600px;
+      margin: 0 auto;
+    }
+
+    .preview-header {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      margin-bottom: 30px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .preview-header h1 {
+      font-size: 32px;
+      color: var(--primary);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .preview-header p {
+      color: var(--gray-600);
+      font-size: 16px;
+    }
+
+    .color-palette {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-bottom: 30px;
+    }
+
+    .color-swatch {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .color-box {
+      height: 100px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .color-info h3 {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gray-900);
+      margin-bottom: 4px;
+    }
+
+    .color-info p {
+      font-size: 12px;
+      color: var(--gray-600);
+    }
+
+    .viewport-toggle {
+      background: white;
+      padding: 15px 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .viewport-btn {
+      padding: 10px 20px;
+      border: 2px solid var(--gray-200);
+      background: white;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      color: var(--gray-700);
+      transition: all 0.3s;
+    }
+
+    .viewport-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .viewport-btn:hover {
+      border-color: var(--primary);
+    }
+
+    .mockup-frame {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      margin-bottom: 30px;
+    }
+
+    .mockup-toolbar {
+      background: var(--gray-100);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .mockup-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--gray-300);
+    }
+
+    .mockup-content {
+      transition: all 0.3s;
+    }
+
+    .mockup-content.mobile {
+      max-width: 375px;
+      margin: 0 auto;
+    }
+
+    /* Navigation */
+    .nav {
+      background: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--gray-200);
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-link {
+      color: var(--gray-700);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 15px;
+      transition: color 0.2s;
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .nav-cta {
+      background: var(--accent);
+      color: white;
+      padding: 10px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.3s;
+    }
+
+    .nav-cta:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(184, 134, 11, 0.3);
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      height: 60vh;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="%231E3A5F"/><circle cx="50" cy="50" r="40" fill="%232C5282" opacity="0.1"/></svg>');
+      opacity: 0.1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      color: white;
+      margin-bottom: 20px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 32px;
+      font-weight: 400;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      display: inline-block;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(184, 134, 11, 0.3);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      padding: 14px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      display: inline-block;
+      border: 2px solid white;
+      transition: all 0.3s;
+    }
+
+    .btn-secondary:hover {
+      background: white;
+      color: var(--primary);
+    }
+
+    /* Stats Section */
+    .stats {
+      background: var(--bg-secondary);
+      padding: 60px 20px;
+    }
+
+    .stats-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      text-align: center;
+    }
+
+    .stat-item {
+      padding: 24px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--accent-light);
+      border-radius: 12px;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .stat-number {
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 14px;
+      color: var(--gray-600);
+      font-weight: 500;
+    }
+
+    /* Services Cards */
+    .services {
+      padding: 80px 20px;
+      background: white;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 50px;
+    }
+
+    .section-header h2 {
+      font-size: 40px;
+      color: var(--primary);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .section-header p {
+      font-size: 18px;
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
+
+    .cards-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--gray-200);
+      border-radius: 16px;
+      padding: 32px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+      border-color: var(--accent-light);
+    }
+
+    .card-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      border-radius: 12px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 28px;
+    }
+
+    .card h3 {
+      font-size: 22px;
+      color: var(--primary);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .card p {
+      color: var(--gray-600);
+      font-size: 15px;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .card-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card-link:hover {
+      color: var(--accent-dark);
+    }
+
+    /* Form */
+    .form-section {
+      background: var(--bg-accent);
+      padding: 80px 20px;
+    }
+
+    .form-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--gray-700);
+      margin-bottom: 8px;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 16px;
+      border: 2px solid var(--gray-200);
+      border-radius: 8px;
+      font-size: 16px;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.3s;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(30, 58, 95, 0.1);
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 18px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .form-submit:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(184, 134, 11, 0.3);
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--primary-dark);
+      color: white;
+      padding: 60px 20px 30px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer h4 {
+      font-size: 18px;
+      margin-bottom: 16px;
+      color: var(--accent-light);
+      font-weight: 600;
+    }
+
+    .footer p, .footer a {
+      color: rgba(255,255,255,0.8);
+      font-size: 14px;
+      line-height: 1.8;
+      text-decoration: none;
+    }
+
+    .footer a:hover {
+      color: var(--accent-light);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.6);
+      font-size: 14px;
+    }
+
+    /* Mobile Adjustments */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 32px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .section-header h2 {
+        font-size: 28px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cards-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .section-divider {
+      background: white;
+      padding: 30px;
+      margin: 30px 0;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .section-divider h2 {
+      color: var(--primary);
+      font-size: 24px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .section-divider p {
+      color: var(--gray-600);
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="preview-container">
+    <!-- Header -->
+    <div class="preview-header">
+      <h1>Priselle Website Redesign Preview</h1>
+      <p>Navy + Gold Premium Corporate | Inter Font | Mobile-First Design</p>
+    </div>
+
+    <!-- Color Palette -->
+    <div class="color-palette">
+      <div class="color-swatch">
+        <div class="color-box" style="background: #1E3A5F;"></div>
+        <div class="color-info">
+          <h3>Primary Navy</h3>
+          <p>#1E3A5F</p>
+          <p>Trust & Professionalism</p>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-box" style="background: #B8860B;"></div>
+        <div class="color-info">
+          <h3>Accent Gold</h3>
+          <p>#B8860B</p>
+          <p>Premium & Quality</p>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-box" style="background: #F8FAFC;"></div>
+        <div class="color-info">
+          <h3>Background Light</h3>
+          <p>#F8FAFC</p>
+          <p>Clean & Modern</p>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-box" style="background: #475569;"></div>
+        <div class="color-info">
+          <h3>Text Gray</h3>
+          <p>#475569</p>
+          <p>Body Text</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Viewport Toggle -->
+    <div class="viewport-toggle">
+      <button class="viewport-btn active" onclick="setViewport('desktop')">Desktop View</button>
+      <button class="viewport-btn" onclick="setViewport('mobile')">Mobile View (375px)</button>
+    </div>
+
+    <!-- Homepage Preview -->
+    <div class="mockup-frame">
+      <div class="mockup-toolbar">
+        <div class="mockup-dot"></div>
+        <div class="mockup-dot"></div>
+        <div class="mockup-dot"></div>
+      </div>
+      <div class="mockup-content" id="mockup">
+
+        <!-- Navigation -->
+        <nav class="nav">
+          <div class="logo">Priselle Sourcing</div>
+          <div class="nav-links">
+            <a href="#" class="nav-link">Services</a>
+            <a href="#" class="nav-link">Portfolio</a>
+            <a href="#" class="nav-link">About</a>
+          </div>
+          <a href="#" class="nav-cta">Contact Us</a>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+          <div class="hero-content">
+            <h1>Your Trusted Partner in China Sourcing</h1>
+            <p>Premium manufacturing solutions connecting global businesses with China's finest suppliers</p>
+            <div class="hero-buttons">
+              <a href="#" class="btn-primary">Get Started</a>
+              <a href="#" class="btn-secondary">View Services</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-icon">📦</div>
+              <div class="stat-number">500+</div>
+              <div class="stat-label">Projects Completed</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-icon">🏭</div>
+              <div class="stat-number">1000+</div>
+              <div class="stat-label">Verified Suppliers</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-icon">🌍</div>
+              <div class="stat-number">50+</div>
+              <div class="stat-label">Global Clients</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-icon">⭐</div>
+              <div class="stat-number">4.9</div>
+              <div class="stat-label">Client Rating</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services">
+          <div class="section-header">
+            <h2>Our Premium Services</h2>
+            <p>End-to-end sourcing solutions tailored to your business needs with professional quality control</p>
+          </div>
+          <div class="cards-grid">
+            <div class="card">
+              <div class="card-icon">🔍</div>
+              <h3>Supplier Sourcing</h3>
+              <p>Access to 1000+ verified Chinese manufacturers with rigorous vetting and quality standards</p>
+              <a href="#" class="card-link">Learn More →</a>
+            </div>
+            <div class="card">
+              <div class="card-icon">✓</div>
+              <h3>Quality Control</h3>
+              <p>On-ground inspection and testing to ensure products meet your specifications</p>
+              <a href="#" class="card-link">Learn More →</a>
+            </div>
+            <div class="card">
+              <div class="card-icon">🚢</div>
+              <h3>Logistics & Shipping</h3>
+              <p>Complete freight forwarding, customs clearance, and delivery to your destination</p>
+              <a href="#" class="card-link">Learn More →</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Form Section -->
+        <section class="form-section">
+          <div class="form-container">
+            <div class="section-header">
+              <h2>Request a Quote</h2>
+              <p>Tell us about your sourcing needs and we'll get back to you within 24 hours</p>
+            </div>
+            <form>
+              <div class="form-group">
+                <label class="form-label">Full Name *</label>
+                <input type="text" class="form-input" placeholder="Your name" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email Address *</label>
+                <input type="email" class="form-input" placeholder="your@email.com" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Product Category</label>
+                <input type="text" class="form-input" placeholder="Electronics, Textiles, etc.">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Message</label>
+                <textarea class="form-input" rows="4" placeholder="Tell us about your requirements..."></textarea>
+              </div>
+              <button type="submit" class="form-submit">Send Inquiry</button>
+            </form>
+          </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+          <div class="footer-content">
+            <div>
+              <h4>Priselle Sourcing</h4>
+              <p>Your trusted partner for premium China sourcing and manufacturing solutions.</p>
+            </div>
+            <div>
+              <h4>Services</h4>
+              <p><a href="#">Supplier Sourcing</a></p>
+              <p><a href="#">Quality Control</a></p>
+              <p><a href="#">Logistics</a></p>
+            </div>
+            <div>
+              <h4>Company</h4>
+              <p><a href="#">About Us</a></p>
+              <p><a href="#">Portfolio</a></p>
+              <p><a href="#">Contact</a></p>
+            </div>
+            <div>
+              <h4>Contact</h4>
+              <p>prisellesourcing@gmail.com</p>
+              <p>+86-130-0689-0774</p>
+              <p>Accra, Ghana</p>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <p>&copy; 2026 Priselle Sourcing and Trade. All rights reserved.</p>
+          </div>
+        </footer>
+
+      </div>
+    </div>
+
+    <!-- Design Notes -->
+    <div class="section-divider">
+      <h2>🎨 Design Features</h2>
+      <p><strong>Colors:</strong> Navy (#1E3A5F) conveys trust and professionalism. Gold (#B8860B) adds premium quality feel. Inspired by IBM, BMW, and financial institutions.</p>
+      <p><strong>Typography:</strong> Inter font - used by Vercel, GitHub, Figma. Maximum readability and corporate trust.</p>
+      <p><strong>Layout:</strong> Mobile-first responsive design. Clean cards with subtle shadows. Touch-friendly 56px inputs.</p>
+      <p><strong>Animations:</strong> Subtle hover effects on desktop. Button lift on hover. Smooth transitions (300ms).</p>
+    </div>
+
+  </div>
+
+  <script>
+    function setViewport(type) {
+      const mockup = document.getElementById('mockup');
+      const buttons = document.querySelectorAll('.viewport-btn');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+
+      if (type === 'mobile') {
+        mockup.classList.add('mobile');
+      } else {
+        mockup.classList.remove('mobile');
+      }
+    }
+  </script>
+</body>
+</html>

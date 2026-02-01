@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+:root {
+  /* Primary Gradient */
+  --gradient-primary: linear-gradient(135deg, #4F46E5 0%, #7C3AED 100%);
+
+  /* Modern Blue Theme */
+  --blue-primary: #3B82F6;
+  --blue-accent: #60A5FA;
+  --blue-light: #93C5FD;
+
+  /* Accent Colors */
+  --accent-purple: #8B5CF6;
+  --accent-indigo: #6366F1;
+  --accent-teal: #14B8A6;
+
+  /* Neutral Tones */
+  --gray-50: #F9FAFB;
+  --gray-100: #F3F4F6;
+  --gray-800: #1F2937;
+}
+
+/* Fade in animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.animate-fade-in.play {
+  animation: fade-in 0.8s ease-out forwards;
+}
+
+.animate-fade-in-down {
+  opacity: 0;
+  transform: translateY(-20px);
+}
+
+.animate-fade-in-down.play {
+  animation: fade-in-down 0.6s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.animate-fade-in-up.play {
+  animation: fade-in-up 1s ease-out forwards;
+}
+
+.animate-gradient-x {
+  background-size: 200% auto;
+}
+
+.animate-gradient-x.play {
+  animation: gradient-x 3s ease infinite;
+}
+
