@@ -13,7 +13,7 @@ function AboutSection() {
               <span className="text-sm font-semibold uppercase tracking-wider" style={{color: 'var(--color-accent-dark)', fontWeight: 600, letterSpacing: '0.05em'}}>Why Choose Us</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-6" style={{color: 'var(--color-text)', fontWeight: 700}}>
-              Your Trusted China-Ghana Partner
+              Your Trusted Global Sourcing Partner
             </h2>
             <p className="text-lg max-w-3xl mx-auto" style={{color: 'var(--color-text-light)', fontWeight: 400}}>
               Bridging continents with expertise, quality, and reliability

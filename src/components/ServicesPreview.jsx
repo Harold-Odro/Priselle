@@ -19,7 +19,7 @@ export default function ServicesPreview() {
     {
       icon: Package,
       title: "Logistics & Shipping",
-      description: "Complete shipping and customs clearance from China to Ghana, door-to-door delivery.",
+      description: "Complete shipping and customs clearance from China to anywhere in the world.",
       highlight: "30% faster delivery"
     }
   ]
@@ -38,7 +38,7 @@ export default function ServicesPreview() {
               Our Services
             </h2>
             <p className="text-lg max-w-3xl mx-auto" style={{color: 'var(--color-text-light)', fontWeight: 400}}>
-              End-to-end sourcing solutions designed for businesses in Ghana
+              End-to-end sourcing solutions designed for businesses worldwide
             </p>
           </div>
         </ScrollReveal>

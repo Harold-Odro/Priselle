@@ -56,9 +56,12 @@ const categories = [
 
 export default function WhatWeSource() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen" style={{ background: 'var(--color-background)' }}>
       {/* Hero Section */}
-      <section className="relative overflow-hidden py-20 sm:py-24 lg:py-32" style={{background: 'linear-gradient(135deg, var(--color-primary-dark), var(--color-primary))'}}>
+      <section
+        className="section-dark relative overflow-hidden py-24 sm:py-28 lg:py-36"
+        data-dark-section
+      >
         {/* Background Image */}
         <div className="absolute inset-0 opacity-20">
           <img
@@ -68,19 +71,19 @@ export default function WhatWeSource() {
             width={1920}
             height={1080}
           />
-          <div className="absolute inset-0" style={{background: 'linear-gradient(135deg, rgba(21, 41, 66, 0.85), rgba(30, 58, 95, 0.75))'}}></div>
+          <div className="absolute inset-0" style={{background: 'linear-gradient(135deg, rgba(31, 63, 74, 0.85), rgba(47, 111, 115, 0.75))'}}></div>
         </div>
 
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 -left-40 w-96 h-96 rounded-full blur-3xl" style={{backgroundColor: 'rgba(184, 134, 11, 0.08)'}}></div>
-          <div className="absolute bottom-0 -right-40 w-96 h-96 rounded-full blur-3xl" style={{backgroundColor: 'rgba(44, 82, 130, 0.12)'}}></div>
+          <div className="absolute top-0 -left-40 w-96 h-96 rounded-full blur-3xl" style={{backgroundColor: 'rgba(95, 115, 100, 0.15)'}}></div>
+          <div className="absolute bottom-0 -right-40 w-96 h-96 rounded-full blur-3xl" style={{backgroundColor: 'rgba(47, 111, 115, 0.2)'}}></div>
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl text-white mb-6" style={{fontWeight: 700}}>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl text-white mb-6">
             We Source Whatever Your Business Needs
           </h1>
-          <p className="text-lg sm:text-xl max-w-3xl mx-auto" style={{color: 'rgba(255, 255, 255, 0.9)', fontWeight: 400}}>
+          <p className="text-lg sm:text-xl max-w-3xl mx-auto" style={{color: 'rgba(255, 255, 255, 0.85)'}}>
             From electronics to sanitary ware, machinery to consumer goods — if it's made in China, we can source it
           </p>
         </div>
@@ -167,20 +170,23 @@ export default function WhatWeSource() {
       </section>
 
       {/* Bottom CTA Section */}
-      <section className="py-20 sm:py-24" style={{backgroundColor: 'var(--color-background-alt)'}}>
+      <section
+        className="section-dark py-20 sm:py-24"
+        data-dark-section
+      >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <ScrollReveal>
-            <div className="rounded-lg p-12 sm:p-16 shadow-lg" style={{background: 'linear-gradient(135deg, var(--color-primary-dark), var(--color-primary))'}}>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl text-white mb-6" style={{fontWeight: 700}}>
+            <div className="rounded-2xl p-12 sm:p-16 shadow-lg" style={{background: 'rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)', border: '1px solid rgba(255, 255, 255, 0.1)'}}>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
                 Can't Find What You're Looking For?
               </h2>
-              <p className="text-lg sm:text-xl mb-8" style={{color: 'rgba(255, 255, 255, 0.9)', fontWeight: 400}}>
+              <p className="text-lg sm:text-xl mb-8" style={{color: 'rgba(255, 255, 255, 0.85)'}}>
                 We source it all! Our network of 1000+ verified suppliers means we can find exactly what your business needs.
               </p>
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-10 py-4 text-white rounded-lg font-medium text-base transition-all duration-200 shadow-lg hover:shadow-xl"
-                style={{backgroundColor: 'var(--color-accent)', fontWeight: 600}}
+                className="inline-flex items-center justify-center px-10 py-4 text-white rounded-xl font-semibold text-base transition-all duration-200 shadow-lg hover:shadow-xl"
+                style={{backgroundColor: 'var(--color-accent)'}}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.backgroundColor = 'var(--color-accent-dark)';
                   e.currentTarget.style.transform = 'translateY(-2px)';

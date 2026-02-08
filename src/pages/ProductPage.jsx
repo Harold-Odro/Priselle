@@ -37,42 +37,50 @@ export default function ProductPage() {
       <SEO
         title="Sourcing Portfolio | What We Can Source from China | Priselle"
         description="Explore our sourcing capabilities: electronics, textiles, home goods, and more from 1000+ verified Chinese suppliers. Quality control and logistics included. Request a quote today."
-        keywords="China sourcing portfolio, what to source from China, product sourcing examples, Chinese manufacturers, Ghana import business, wholesale sourcing"
+        keywords="China sourcing portfolio, what to source from China, product sourcing examples, Chinese manufacturers, import business, wholesale sourcing, worldwide shipping"
         schema={schema}
       />
-      <div className="min-h-screen">
-      {/* Header */}
-      <ProductPageHeader />
+      <div className="min-h-screen" style={{ background: 'var(--color-background)' }}>
+        {/* Header */}
+        <ProductPageHeader />
 
-      {/* Filters and Search */}
-      <div className="sticky top-16 z-10 bg-white border-b-2 border-gray-200 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
-          <ProductFilters
-            categories={categories}
-            selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-          />
+        {/* Filters and Search */}
+        <div
+          className="sticky top-[70px] z-10 shadow-sm"
+          style={{
+            backgroundColor: 'var(--color-background)',
+            borderBottom: '1px solid var(--color-border)'
+          }}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-6">
+            <ProductFilters
+              categories={categories}
+              selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+            />
+          </div>
         </div>
-      </div>
 
-      {/* Product Grid */}
-      <div className="bg-gradient-to-br from-gray-50 to-white min-h-screen">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16">
-          {filteredProducts.length === 0 ? (
-            <div className="text-center py-20">
-              <p className="text-xl text-gray-600 font-light">No products found matching your criteria.</p>
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
-              {filteredProducts.map(product => (
-                <ProductCard key={product.id} product={product} />
-              ))}
-            </div>
-          )}
+        {/* Product Grid */}
+        <div className="min-h-screen" style={{background: 'var(--color-background-alt)'}}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 lg:py-16">
+            {filteredProducts.length === 0 ? (
+              <div className="text-center py-20">
+                <p className="text-xl font-light" style={{color: 'var(--color-text-light)'}}>
+                  No products found matching your criteria.
+                </p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+                {filteredProducts.map(product => (
+                  <ProductCard key={product.id} product={product} />
+                ))}
+              </div>
+            )}
+          </div>
         </div>
-      </div>
       </div>
     </>
   )

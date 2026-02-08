@@ -50,9 +50,12 @@ export default function AboutPage() {
         keywords="about priselle, china sourcing company, sourcing partner, manufacturing solutions, trade services"
       />
 
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen" style={{ background: 'var(--color-background)' }}>
         {/* Hero Section */}
-        <section className="relative overflow-hidden py-20 sm:py-24 lg:py-32" style={{background: 'linear-gradient(135deg, var(--color-primary-dark), var(--color-primary))'}}>
+        <section
+          className="section-dark relative overflow-hidden py-24 sm:py-28 lg:py-36"
+          data-dark-section
+        >
           {/* Background Image */}
           <div className="absolute inset-0 opacity-20">
             <img
@@ -62,20 +65,20 @@ export default function AboutPage() {
               width={1920}
               height={1080}
             />
-            <div className="absolute inset-0" style={{background: 'linear-gradient(135deg, rgba(21, 41, 66, 0.85), rgba(30, 58, 95, 0.75))'}}></div>
+            <div className="absolute inset-0" style={{background: 'linear-gradient(135deg, rgba(31, 63, 74, 0.85), rgba(47, 111, 115, 0.75))'}}></div>
           </div>
 
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-0 -left-40 w-96 h-96 rounded-full blur-3xl" style={{backgroundColor: 'rgba(184, 134, 11, 0.08)'}}></div>
-            <div className="absolute bottom-0 -right-40 w-96 h-96 rounded-full blur-3xl" style={{backgroundColor: 'rgba(44, 82, 130, 0.12)'}}></div>
+            <div className="absolute top-0 -left-40 w-96 h-96 rounded-full blur-3xl" style={{backgroundColor: 'rgba(95, 115, 100, 0.15)'}}></div>
+            <div className="absolute bottom-0 -right-40 w-96 h-96 rounded-full blur-3xl" style={{backgroundColor: 'rgba(47, 111, 115, 0.2)'}}></div>
           </div>
 
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl text-white mb-6" style={{fontWeight: 700}}>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl text-white mb-6">
               Your Trusted Bridge to
-              <span className="block mt-2" style={{color: 'var(--color-accent-light)', fontWeight: 700}}>China's Manufacturing Excellence</span>
+              <span className="block mt-2" style={{color: 'var(--color-accent-light)'}}>China's Manufacturing Excellence</span>
             </h1>
-            <p className="text-lg sm:text-xl max-w-3xl mx-auto" style={{color: 'rgba(255, 255, 255, 0.9)', fontWeight: 400}}>
+            <p className="text-lg sm:text-xl max-w-3xl mx-auto" style={{color: 'rgba(255, 255, 255, 0.85)'}}>
               Connecting global businesses with premium Chinese manufacturers since our founding,
               we've built a reputation for quality, reliability, and exceptional service.
             </p>
@@ -83,16 +86,16 @@ export default function AboutPage() {
         </section>
 
         {/* Stats Section */}
-        <section className="py-20 sm:py-24" style={{backgroundColor: 'var(--color-background-alt)'}}>
+        <section className="py-20 sm:py-24" style={{background: 'var(--color-background-alt)'}}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {stats.map((stat, index) => (
                 <ScrollReveal key={index} delay={index * 100}>
                   <div className="text-center">
-                    <div className="text-4xl sm:text-5xl mb-2" style={{color: 'var(--color-accent)', fontWeight: 700}}>
+                    <div className="text-4xl sm:text-5xl mb-2" style={{color: 'var(--color-primary)', fontWeight: 600}}>
                       {stat.number}
                     </div>
-                    <div className="text-sm sm:text-base" style={{color: 'var(--color-text-light)', fontWeight: 400}}>
+                    <div className="text-sm sm:text-base" style={{color: 'var(--color-text-light)'}}>
                       {stat.label}
                     </div>
                   </div>
@@ -108,10 +111,10 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <ScrollReveal>
                 <div>
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-6" style={{color: 'var(--color-text)', fontWeight: 700}}>
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-6" style={{color: 'var(--color-text)'}}>
                     Our Story
                   </h2>
-                  <div className="space-y-4 text-lg leading-relaxed" style={{color: 'var(--color-text-light)', fontWeight: 400}}>
+                  <div className="space-y-4 text-lg leading-relaxed" style={{color: 'var(--color-text-light)'}}>
                     <p>
                       Priselle Sourcing and Trade was born from a simple vision: to make international
                       sourcing accessible, transparent, and reliable for businesses of all sizes.
@@ -139,7 +142,7 @@ export default function AboutPage() {
                     width={800}
                     height={600}
                   />
-                  <div className="absolute -bottom-6 -right-6 w-48 h-48 rounded-full blur-3xl -z-10" style={{backgroundColor: 'rgba(184, 134, 11, 0.15)'}}></div>
+                  <div className="absolute -bottom-6 -right-6 w-48 h-48 rounded-full blur-3xl -z-10" style={{backgroundColor: 'rgba(95, 115, 100, 0.2)'}}></div>
                 </div>
               </ScrollReveal>
             </div>
@@ -147,14 +150,14 @@ export default function AboutPage() {
         </section>
 
         {/* Our Values */}
-        <section className="py-20 sm:py-24" style={{backgroundColor: 'var(--color-background-alt)'}}>
+        <section className="py-20 sm:py-24" style={{background: 'var(--color-background-alt)'}}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <ScrollReveal>
               <div className="text-center mb-16">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-4" style={{color: 'var(--color-text)', fontWeight: 700}}>
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-4" style={{color: 'var(--color-text)'}}>
                   Our Core Values
                 </h2>
-                <p className="text-lg max-w-2xl mx-auto" style={{color: 'var(--color-text-light)', fontWeight: 400}}>
+                <p className="text-lg max-w-2xl mx-auto" style={{color: 'var(--color-text-light)'}}>
                   The principles that guide every decision we make and every partnership we build
                 </p>
               </div>
@@ -165,14 +168,17 @@ export default function AboutPage() {
                 const Icon = value.icon
                 return (
                   <ScrollReveal key={index} delay={index * 100}>
-                    <div className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300" style={{border: '1px solid var(--color-gray-200)'}}>
-                      <div className="w-14 h-14 rounded-lg flex items-center justify-center mb-6" style={{backgroundColor: 'var(--color-background-accent)'}}>
-                        <Icon className="h-7 w-7" style={{color: 'var(--color-accent)'}} />
+                    <div className="card rounded-2xl p-8 hover:shadow-xl transition-all duration-300">
+                      <div
+                        className="w-14 h-14 rounded-xl flex items-center justify-center mb-6"
+                        style={{background: 'linear-gradient(145deg, var(--color-primary), var(--color-primary-light))'}}
+                      >
+                        <Icon className="h-7 w-7 text-white" />
                       </div>
                       <h3 className="text-xl mb-3" style={{color: 'var(--color-text)', fontWeight: 600}}>
                         {value.title}
                       </h3>
-                      <p className="leading-relaxed" style={{color: 'var(--color-text-light)', fontWeight: 400}}>
+                      <p className="leading-relaxed" style={{color: 'var(--color-text-light)'}}>
                         {value.description}
                       </p>
                     </div>
@@ -189,18 +195,18 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <ScrollReveal>
                 <div>
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-6" style={{color: 'var(--color-text)', fontWeight: 700}}>
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-6" style={{color: 'var(--color-text)'}}>
                     Why Choose Priselle?
                   </h2>
-                  <p className="text-lg mb-8" style={{color: 'var(--color-text-light)', fontWeight: 400}}>
+                  <p className="text-lg mb-8" style={{color: 'var(--color-text-light)'}}>
                     We're not just a sourcing company—we're your strategic partner in China,
                     committed to your success.
                   </p>
                   <div className="space-y-4">
                     {whyChooseUs.map((reason, index) => (
                       <div key={index} className="flex items-start gap-3">
-                        <CheckCircle2 className="h-6 w-6 flex-shrink-0 mt-0.5" style={{color: 'var(--color-accent)'}} />
-                        <span style={{color: 'var(--color-text-light)', fontWeight: 400}}>{reason}</span>
+                        <CheckCircle2 className="h-6 w-6 flex-shrink-0 mt-0.5" style={{color: 'var(--color-primary)'}} />
+                        <span style={{color: 'var(--color-text-light)'}}>{reason}</span>
                       </div>
                     ))}
                   </div>
@@ -230,20 +236,23 @@ export default function AboutPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 sm:py-24" style={{background: 'linear-gradient(135deg, var(--color-primary-dark), var(--color-primary))'}}>
+        <section
+          className="section-dark py-20 sm:py-24"
+          data-dark-section
+        >
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <ScrollReveal>
               <Award className="h-16 w-16 mx-auto mb-6" style={{color: 'var(--color-accent-light)'}} />
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl text-white mb-6" style={{fontWeight: 700}}>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
                 Ready to Source with Confidence?
               </h2>
-              <p className="text-lg sm:text-xl mb-8" style={{color: 'rgba(255, 255, 255, 0.9)', fontWeight: 400}}>
+              <p className="text-lg sm:text-xl mb-8" style={{color: 'rgba(255, 255, 255, 0.85)'}}>
                 Join hundreds of successful businesses who trust Priselle for their sourcing needs
               </p>
               <a
                 href="/contact"
-                className="inline-flex items-center justify-center px-10 py-4 text-white rounded-lg font-medium text-base transition-all duration-200 shadow-lg hover:shadow-xl"
-                style={{backgroundColor: 'var(--color-accent)', fontWeight: 600}}
+                className="inline-flex items-center justify-center px-10 py-4 text-white rounded-xl font-semibold text-base transition-all duration-200 shadow-lg hover:shadow-xl"
+                style={{backgroundColor: 'var(--color-accent)'}}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.backgroundColor = 'var(--color-accent-dark)';
                   e.currentTarget.style.transform = 'translateY(-2px)';

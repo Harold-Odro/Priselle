@@ -37,10 +37,10 @@ export default function HeroSection() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 5000) // Change slide every 5 seconds
+    }, 5000)
 
     return () => clearInterval(timer)
-  }, []) // Only create interval once on mount
+  }, [])
 
   const nextSlide = () => {
     if (isAnimating) return
@@ -60,8 +60,8 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative overflow-hidden h-[60vh] sm:h-[65vh] lg:h-[70vh] flex items-center"
-      style={{background: 'linear-gradient(135deg, var(--color-primary-dark), var(--color-primary))'}}
+      className="section-dark relative overflow-hidden h-[60vh] sm:h-[65vh] lg:h-[70vh] flex items-center"
+      data-dark-section
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -83,7 +83,7 @@ export default function HeroSection() {
           />
           <div
             className="absolute inset-0"
-            style={{background: 'linear-gradient(135deg, rgba(21, 41, 66, 0.85), rgba(30, 58, 95, 0.75))'}}
+            style={{background: 'linear-gradient(135deg, rgba(31, 63, 74, 0.85), rgba(47, 111, 115, 0.75))'}}
           ></div>
         </div>
       ))}
@@ -92,18 +92,18 @@ export default function HeroSection() {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
           className="absolute top-0 -left-40 w-96 h-96 rounded-full blur-3xl"
-          style={{backgroundColor: 'rgba(184, 134, 11, 0.08)'}}
+          style={{backgroundColor: 'rgba(95, 115, 100, 0.15)'}}
         ></div>
         <div
           className="absolute bottom-0 -right-40 w-96 h-96 rounded-full blur-3xl"
-          style={{backgroundColor: 'rgba(44, 82, 130, 0.12)'}}
+          style={{backgroundColor: 'rgba(47, 111, 115, 0.2)'}}
         ></div>
       </div>
 
       {/* Content */}
       <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 z-10">
         <div className="max-w-2xl lg:max-w-3xl">
-          
+
           {/* Main headline with transition */}
           <div className={`transition-all duration-500 ${isAnimating ? 'opacity-0 translate-y-4' : 'opacity-100 translate-y-0'}`}>
             <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-4 leading-[1.1] tracking-tight animate-fade-in ${animationsReady ? 'play' : ''}`}>
@@ -113,7 +113,8 @@ export default function HeroSection() {
                   className="block mb-2"
                   style={{
                     color: index === slide.title.length - 1 ? 'var(--color-accent-light)' : 'white',
-                    fontWeight: index === slide.title.length - 1 ? 600 : 400
+                    fontWeight: index === slide.title.length - 1 ? 500 : 400,
+                    fontFamily: "'Playfair Display', Georgia, serif"
                   }}
                 >
                   {line}
@@ -123,7 +124,7 @@ export default function HeroSection() {
 
             {/* Subtitle if exists */}
             {slide.subtitle && (
-              <p className="text-lg sm:text-xl mb-8" style={{color: 'rgba(255, 255, 255, 0.9)', fontWeight: 400}}>
+              <p className="text-lg sm:text-xl mb-8" style={{color: 'rgba(255, 255, 255, 0.85)', fontWeight: 400}}>
                 {slide.subtitle}
               </p>
             )}
@@ -132,7 +133,7 @@ export default function HeroSection() {
             <div className={`mb-8 animate-fade-in-up ${animationsReady ? 'play' : ''}`}>
               <Link
                 to={slide.buttonLink}
-                className="inline-flex items-center justify-center px-8 py-4 rounded-lg font-semibold text-base transition-all duration-200 shadow-lg hover:shadow-xl"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-base transition-all duration-200 shadow-lg hover:shadow-xl"
                 style={{
                   backgroundColor: 'var(--color-accent)',
                   color: 'white',
@@ -163,19 +164,19 @@ export default function HeroSection() {
       >
         <button
           onClick={prevSlide}
-          className="w-10 h-10 sm:w-12 sm:h-12 backdrop-blur-md text-white rounded-lg flex items-center justify-center transition-all duration-200 shadow-lg"
+          className="w-10 h-10 sm:w-12 sm:h-12 backdrop-blur-md text-white rounded-xl flex items-center justify-center transition-all duration-200 shadow-lg"
           style={{
-            backgroundColor: 'rgba(30, 58, 95, 0.8)',
-            border: '1px solid rgba(184, 134, 11, 0.3)'
+            backgroundColor: 'rgba(47, 111, 115, 0.8)',
+            border: '1px solid rgba(95, 115, 100, 0.3)'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = 'rgba(184, 134, 11, 0.9)';
-            e.currentTarget.style.borderColor = 'rgba(184, 134, 11, 0.8)';
+            e.currentTarget.style.backgroundColor = 'rgba(95, 115, 100, 0.9)';
+            e.currentTarget.style.borderColor = 'rgba(95, 115, 100, 0.8)';
             e.currentTarget.style.transform = 'scale(1.05)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = 'rgba(30, 58, 95, 0.8)';
-            e.currentTarget.style.borderColor = 'rgba(184, 134, 11, 0.3)';
+            e.currentTarget.style.backgroundColor = 'rgba(47, 111, 115, 0.8)';
+            e.currentTarget.style.borderColor = 'rgba(95, 115, 100, 0.3)';
             e.currentTarget.style.transform = 'scale(1)';
           }}
           aria-label="Previous slide"
@@ -190,25 +191,41 @@ export default function HeroSection() {
       >
         <button
           onClick={nextSlide}
-          className="w-10 h-10 sm:w-12 sm:h-12 backdrop-blur-md text-white rounded-lg flex items-center justify-center transition-all duration-200 shadow-lg"
+          className="w-10 h-10 sm:w-12 sm:h-12 backdrop-blur-md text-white rounded-xl flex items-center justify-center transition-all duration-200 shadow-lg"
           style={{
-            backgroundColor: 'rgba(30, 58, 95, 0.8)',
-            border: '1px solid rgba(184, 134, 11, 0.3)'
+            backgroundColor: 'rgba(47, 111, 115, 0.8)',
+            border: '1px solid rgba(95, 115, 100, 0.3)'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = 'rgba(184, 134, 11, 0.9)';
-            e.currentTarget.style.borderColor = 'rgba(184, 134, 11, 0.8)';
+            e.currentTarget.style.backgroundColor = 'rgba(95, 115, 100, 0.9)';
+            e.currentTarget.style.borderColor = 'rgba(95, 115, 100, 0.8)';
             e.currentTarget.style.transform = 'scale(1.05)';
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = 'rgba(30, 58, 95, 0.8)';
-            e.currentTarget.style.borderColor = 'rgba(184, 134, 11, 0.3)';
+            e.currentTarget.style.backgroundColor = 'rgba(47, 111, 115, 0.8)';
+            e.currentTarget.style.borderColor = 'rgba(95, 115, 100, 0.3)';
             e.currentTarget.style.transform = 'scale(1)';
           }}
           aria-label="Next slide"
         >
           <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
         </button>
+      </div>
+
+      {/* Slide indicators */}
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentSlide(index)}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${
+              index === currentSlide
+                ? 'w-8 bg-white'
+                : 'bg-white/40 hover:bg-white/60'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
     </section>
   )

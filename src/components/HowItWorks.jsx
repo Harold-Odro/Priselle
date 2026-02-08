@@ -26,7 +26,7 @@ export default function HowItWorks() {
       number: "04",
       icon: Plane,
       title: "Shipping & Customs",
-      description: "We handle all logistics, shipping, and customs clearance. Your products arrive safely at your doorstep in Ghana."
+      description: "We handle all logistics, shipping, and customs clearance. Your products arrive safely at your doorstep anywhere in the world."
     }
   ];
 
