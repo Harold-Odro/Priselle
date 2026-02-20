@@ -5,14 +5,14 @@ export default function SplashScreen({ onComplete }) {
   const [isAnimating, setIsAnimating] = useState(false)
 
   useEffect(() => {
-    // Start slide-up animation after 2.5 seconds
+    // Start slide-up animation after 1.5 seconds (reduced for better UX)
     const timer = setTimeout(() => {
       setIsAnimating(true)
       // Call onComplete after animation finishes
       setTimeout(() => {
         onComplete()
-      }, 800) // Match this with CSS animation duration
-    }, 2500)
+      }, 500) // Reduced animation duration
+    }, 1500)
 
     return () => clearTimeout(timer)
   }, [onComplete])
@@ -26,7 +26,7 @@ export default function SplashScreen({ onComplete }) {
             <div className="logo-circle"></div>
             <div className="logo-text">PRISELLE</div>
           </div>
-          <div className="splash-tagline">Sourcing Excellence</div>
+          <div className="splash-tagline">Sourcing & Trade</div>
         </div>
 
         {/* Animated loading bar */}

@@ -2,6 +2,14 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
+const NAV_LINKS = [
+  { to: '/', label: 'Home' },
+  { to: '/services', label: 'Services' },
+  { to: '/products', label: 'Products' },
+  { to: '/about', label: 'About' },
+  { to: '/contact', label: 'Contact' }
+];
+
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -66,16 +74,14 @@ export default function Navigation() {
     return 'var(--color-text)';
   };
 
-  const getLinkHoverColor = () => {
-    if (isOnDark) return 'rgba(255, 255, 255, 0.7)';
-    return 'var(--color-primary)';
-  };
-
   return (
     <nav
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
         height: '70px',
+        WebkitBackfaceVisibility: 'hidden',
+        backfaceVisibility: 'hidden',
+        transform: 'translateZ(0)',
         ...getNavbarStyles()
       }}
     >
@@ -95,11 +101,13 @@ export default function Navigation() {
               }}
             />
             <span
-              className="ml-3 text-lg font-semibold whitespace-nowrap transition-colors duration-300"
+              className="ml-3 whitespace-nowrap transition-colors duration-300"
               style={{
                 color: getLinkColor(),
-                fontFamily: "'Outfit', sans-serif",
-                fontWeight: 600
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontWeight: 500,
+                fontSize: '1.4rem',
+                letterSpacing: '0.02em'
               }}
             >
               Priselle
@@ -120,28 +128,28 @@ export default function Navigation() {
 
           {/* Desktop Navigation Links - Right Aligned */}
           <div className="hidden md:flex items-center gap-10">
-            {[
-              { to: '/', label: 'Home' },
-              { to: '/services', label: 'Services' },
-              { to: '/about', label: 'About' },
-              { to: '/contact', label: 'Contact' }
-            ].map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className="transition-opacity duration-200 text-sm tracking-wide"
-                style={{
-                  color: getLinkColor(),
-                  fontFamily: "'Outfit', sans-serif",
-                  fontWeight: 500,
-                  letterSpacing: '0.02em'
-                }}
-                onMouseEnter={(e) => e.currentTarget.style.opacity = '0.7'}
-                onMouseLeave={(e) => e.currentTarget.style.opacity = '1'}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const isActive = location.pathname === link.to;
+              return (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  aria-current={isActive ? 'page' : undefined}
+                  className="transition-opacity duration-200 text-sm tracking-wide"
+                  style={{
+                    color: getLinkColor(),
+                    fontFamily: "'Outfit', sans-serif",
+                    fontWeight: isActive ? 600 : 500,
+                    letterSpacing: '0.02em',
+                    opacity: isActive ? 1 : 0.85
+                  }}
+                  onMouseEnter={(e) => e.currentTarget.style.opacity = '0.7'}
+                  onMouseLeave={(e) => e.currentTarget.style.opacity = isActive ? '1' : '0.85'}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -149,41 +157,50 @@ export default function Navigation() {
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
         <div
-          className="md:hidden absolute top-full left-0 right-0"
+          className="md:hidden fixed left-0 right-0"
           style={{
+            top: '70px',
             background: isOnDark ? 'rgba(31, 63, 74, 0.98)' : 'rgba(236, 255, 220, 0.98)',
             backdropFilter: 'blur(10px)',
-            borderTop: isOnDark ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(0,0,0,0.05)'
+            WebkitBackdropFilter: 'blur(10px)',
+            borderTop: isOnDark ? '1px solid rgba(255,255,255,0.1)' : '1px solid rgba(0,0,0,0.05)',
+            maxHeight: 'calc(100vh - 70px)',
+            overflowY: 'auto',
+            WebkitOverflowScrolling: 'touch',
+            zIndex: 49
           }}
         >
           <div className="flex flex-col py-4">
-            {[
-              { to: '/', label: 'Home' },
-              { to: '/services', label: 'Services' },
-              { to: '/about', label: 'About' },
-              { to: '/contact', label: 'Contact' }
-            ].map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className="px-6 py-3 text-base font-medium transition-opacity duration-200"
-                style={{
-                  color: getLinkColor(),
-                  fontFamily: "'Outfit', sans-serif"
-                }}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const isActive = location.pathname === link.to;
+              return (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  aria-current={isActive ? 'page' : undefined}
+                  className="px-6 py-3 text-base font-medium transition-opacity duration-200"
+                  style={{
+                    color: getLinkColor(),
+                    fontFamily: "'Outfit', sans-serif",
+                    fontWeight: isActive ? 600 : 500,
+                    backgroundColor: isActive ? (isOnDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)') : 'transparent'
+                  }}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
 
             <Link
               to="/contact"
-              className="mx-4 mt-4 px-6 py-3 rounded-xl font-semibold text-center text-white shadow-md transition-all duration-200"
+              className="mx-4 mt-4 px-6 py-3 rounded-xl font-semibold text-center shadow-md transition-all duration-200"
               onClick={() => setIsMenuOpen(false)}
               style={{
-                backgroundColor: 'var(--color-accent)',
-                fontFamily: "'Outfit', sans-serif"
+                backgroundColor: 'var(--color-primary)',
+                color: 'white',
+                fontFamily: "'Outfit', sans-serif",
+                textShadow: '0 1px 2px rgba(0,0,0,0.2)'
               }}
             >
               Get Started

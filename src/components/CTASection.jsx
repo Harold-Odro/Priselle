@@ -174,7 +174,7 @@ export default function CTASection() {
           className="cta-subtitle"
           style={{
             fontSize: '1.1rem',
-            color: 'rgba(255, 255, 255, 0.8)',
+            color: 'rgba(255, 255, 255, 0.9)',
             marginBottom: '35px',
             maxWidth: '500px',
             marginLeft: 'auto',
@@ -192,28 +192,30 @@ export default function CTASection() {
             display: 'inline-flex',
             alignItems: 'center',
             gap: '10px',
-            backgroundColor: 'var(--color-accent)',
+            backgroundColor: 'var(--color-primary)',
             color: 'white',
             padding: '18px 40px',
             borderRadius: '12px',
             fontSize: '1.1rem',
             fontWeight: 600,
+            letterSpacing: '0.03em',
             textDecoration: 'none',
+            textShadow: '0 1px 2px rgba(0, 0, 0, 0.15)',
             transition: 'all 0.3s ease',
             marginBottom: '30px'
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = 'var(--color-accent-dark)'
+            e.currentTarget.style.backgroundColor = 'var(--color-primary-dark)'
             e.currentTarget.style.transform = 'translateY(-3px)'
-            e.currentTarget.style.boxShadow = '0 15px 35px rgba(95, 115, 100, 0.4)'
+            e.currentTarget.style.boxShadow = '0 15px 35px rgba(47, 111, 115, 0.4)'
           }}
           onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = 'var(--color-accent)'
+            e.currentTarget.style.backgroundColor = 'var(--color-primary)'
             e.currentTarget.style.transform = 'translateY(0)'
             e.currentTarget.style.boxShadow = 'none'
           }}
         >
-          Contact Us
+          Get a Free Quote
           <ArrowRight className="w-5 h-5" />
         </Link>
 
@@ -258,7 +260,7 @@ export default function CTASection() {
                 display: 'flex',
                 alignItems: 'center',
                 gap: '10px',
-                color: 'rgba(255, 255, 255, 0.8)',
+                color: 'rgba(255, 255, 255, 0.9)',
                 fontSize: '0.9rem'
               }}
             >
@@ -267,7 +269,7 @@ export default function CTASection() {
                 <a
                   href={item.href}
                   style={{
-                    color: 'rgba(255, 255, 255, 0.8)',
+                    color: 'rgba(255, 255, 255, 0.9)',
                     textDecoration: 'none',
                     transition: 'color 0.2s'
                   }}

@@ -1,6 +1,6 @@
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useAnimations } from '../contexts/AnimationContext'
 
 const slides = [
@@ -33,14 +33,8 @@ export default function HeroSection() {
   const [isHovered, setIsHovered] = useState(false)
   const { animationsReady } = useAnimations()
 
-  // Auto-advance slides
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length)
-    }, 5000)
-
-    return () => clearInterval(timer)
-  }, [])
+  // Auto-advance disabled for better UX - users control navigation
+  // Manual navigation available via arrows and dot indicators
 
   const nextSlide = () => {
     if (isAnimating) return
@@ -66,27 +60,20 @@ export default function HeroSection() {
       onMouseLeave={() => setIsHovered(false)}
     >
 
-      {/* Background Images with Transition */}
-      {slides.map((slideData, index) => (
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src="/images/background.jpg"
+          alt="Priselle Sourcing Background"
+          className="w-full h-full object-cover"
+          width={1920}
+          height={1080}
+        />
         <div
-          key={index}
-          className={`absolute inset-0 transition-opacity duration-700 ${
-            index === currentSlide ? 'opacity-20' : 'opacity-0'
-          }`}
-        >
-          <img
-            src={slideData.image}
-            alt={slideData.title.join(' ') + (slideData.subtitle ? ' - ' + slideData.subtitle : '')}
-            className="w-full h-full object-cover"
-            width={1920}
-            height={1080}
-          />
-          <div
-            className="absolute inset-0"
-            style={{background: 'linear-gradient(135deg, rgba(31, 63, 74, 0.85), rgba(47, 111, 115, 0.75))'}}
-          ></div>
-        </div>
-      ))}
+          className="absolute inset-0"
+          style={{background: 'linear-gradient(135deg, rgba(31, 63, 74, 0.85), rgba(47, 111, 115, 0.75))'}}
+        ></div>
+      </div>
 
       {/* Animated gradient orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

@@ -33,7 +33,9 @@ export default function HeroServicesSection() {
           // If already animated, set final state
           if (alreadyAnimated) {
             span.style.opacity = '1'
-            span.style.transform = 'translateY(0%) scaleY(1) scaleX(1)'
+          } else {
+            // Hide until GSAP takes over
+            span.style.opacity = '0'
           }
           wordWrapper.appendChild(span)
         })
@@ -57,24 +59,19 @@ export default function HeroServicesSection() {
           chars,
           {
             opacity: 0,
-            yPercent: 120,
-            scaleY: 2.3,
-            scaleX: 0.7,
-            transformOrigin: '50% 0%'
+            y: 30
           },
           {
-            duration: 0.6,
-            ease: 'back.out(1.5)',
+            duration: 0.4,
+            ease: 'power2.out',
             opacity: 1,
-            yPercent: 0,
-            scaleY: 1,
-            scaleX: 1,
-            stagger: 0.015,
+            y: 0,
+            stagger: 0.02,
             scrollTrigger: {
               trigger: headlineRef.current,
-              start: 'top bottom+=20%',
-              end: 'top center',
-              scrub: 0.5,
+              start: 'top bottom-=10%',
+              end: 'top center+=20%',
+              scrub: 0.3,
               onEnter: () => {
                 setHasAnimated(true)
                 sessionStorage.setItem('heroAnimated', 'true')
@@ -153,7 +150,7 @@ export default function HeroServicesSection() {
           const chars = headlineRef.current.querySelectorAll('.char')
           chars.forEach(char => {
             char.style.opacity = '1'
-            char.style.transform = 'translateY(0%) scaleY(1) scaleX(1)'
+            char.style.transform = 'translateY(0)'
           })
         }
       }
@@ -227,10 +224,7 @@ export default function HeroServicesSection() {
         </div>
       </div>
 
-      <div className="scroll-hint">
-        <span>Scroll to explore</span>
-        <span>↓</span>
-      </div>
+    
     </section>
   )
 }

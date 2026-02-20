@@ -13,7 +13,7 @@ export default function ProductSlideshow() {
 
   const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % products.length)
-  }, [products.length])
+  }, [])
 
   // Auto-slide functionality with pause on hover
   useEffect(() => {

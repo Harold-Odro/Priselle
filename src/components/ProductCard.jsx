@@ -42,9 +42,9 @@ export default function ProductCard({ product }) {
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-        <div className="absolute top-5 left-5">
+        <div className="absolute top-5 left-5 right-16">
           <span
-            className="px-4 py-2 rounded-full text-sm font-bold shadow-xl"
+            className="inline-block max-w-full px-4 py-2 rounded-full text-sm font-bold shadow-xl truncate"
             style={{
               backgroundColor: 'rgba(255, 255, 255, 0.95)',
               backdropFilter: 'blur(4px)',

@@ -4,7 +4,6 @@ import LandingSection from '../components/LandingSection'
 import HeroServicesSection from '../components/HeroServicesSection'
 import IndustriesGallery from '../components/IndustriesGallery'
 import CTASection from '../components/CTASection'
-import Footer from '../components/Footer'
 import SEO from '../components/SEO'
 
 export default function Homepage() {
@@ -46,13 +45,12 @@ export default function Homepage() {
         keywords="China sourcing, product sourcing, manufacturing China, wholesale supplier, quality control China, logistics shipping, trade services, global sourcing, worldwide shipping"
         schema={schema}
       />
-      <main className="relative w-full min-h-screen">
+      <div className="relative w-full">
         <LandingSection />
         <HeroServicesSection />
         <IndustriesGallery />
         <CTASection />
-        <Footer />
-      </main>
+      </div>
     </>
   )
 }

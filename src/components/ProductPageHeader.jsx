@@ -3,17 +3,19 @@ import { Search, Shield, Package } from 'lucide-react'
 export default function ProductPageHeader() {
   return (
     <section
-      className="section-dark relative overflow-hidden py-24 sm:py-28 lg:py-36"
+      className="section-dark relative overflow-hidden py-20 sm:py-24 lg:py-32"
       data-dark-section
     >
       {/* Background Image */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0">
         <img
           src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=1920&h=1080&fit=crop"
-          alt="Portfolio Background"
+          alt=""
           className="w-full h-full object-cover"
+          width={1920}
+          height={1080}
         />
-        <div className="absolute inset-0" style={{background: 'linear-gradient(135deg, rgba(31, 63, 74, 0.85), rgba(47, 111, 115, 0.75))'}}></div>
+        <div className="absolute inset-0" style={{background: 'linear-gradient(135deg, rgba(31, 63, 74, 0.92), rgba(47, 111, 115, 0.88))'}}></div>
       </div>
 
       {/* Glow effects */}
@@ -24,19 +26,18 @@ export default function ProductPageHeader() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-5xl mx-auto">
-          {/* Icon */}
+          {/* Badge */}
           <div
-            className="inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-2xl shadow-xl mb-8"
-            style={{background: 'linear-gradient(145deg, var(--color-primary), var(--color-primary-light))'}}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm mb-6"
+            style={{backgroundColor: 'rgba(255, 255, 255, 0.1)', color: 'var(--color-accent-light)'}}
           >
-            <Package className="h-8 w-8 sm:h-10 sm:w-10 text-white" />
+            <span className="w-2 h-2 rounded-full" style={{backgroundColor: 'var(--color-accent-light)'}}></span>
+            Our Portfolio
           </div>
 
           {/* Main heading */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl text-white mb-6">
-            <span style={{fontFamily: "'Playfair Display', Georgia, serif"}}>
-              Sourcing Portfolio
-            </span>
+            Sourcing Portfolio
           </h1>
 
           {/* Subtitle */}
@@ -55,7 +56,7 @@ export default function ProductPageHeader() {
               }}
             >
               <Search className="h-5 w-5" style={{color: 'var(--color-accent-light)'}} />
-              <span className="text-white font-semibold text-base">1000+ Verified Suppliers</span>
+              <span className="text-white font-semibold text-base">Vetted Suppliers</span>
             </div>
             <div
               className="flex items-center space-x-2.5 px-5 py-3 rounded-full shadow-sm"
