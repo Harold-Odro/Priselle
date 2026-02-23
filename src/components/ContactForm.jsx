@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from 'react'
+import { useLocation } from 'react-router-dom'
 import emailjs from '@emailjs/browser'
 import { Clock, CheckCircle, Send } from 'lucide-react'
 import Toast from './Toast'
 
 export default function ContactForm() {
+  const location = useLocation()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -58,7 +60,7 @@ export default function ContactForm() {
     }
   }, [])
 
-  // Check sessionStorage for product info when component mounts
+  // Check sessionStorage for product info when component mounts or location changes
   useEffect(() => {
     const savedProduct = sessionStorage.getItem('selectedProduct')
 
@@ -81,7 +83,7 @@ export default function ContactForm() {
         }, 2000)
       }, 300)
     }
-  }, [])
+  }, [location.key])
 
   const showToast = (message, type = 'info') => {
     setToast({ message, type })
