@@ -2,6 +2,7 @@
 // Homepage component - combines all sections to create the complete homepage
 import LandingSection from '../components/LandingSection'
 import HeroServicesSection from '../components/HeroServicesSection'
+import ServicesPreview from '../components/ServicesPreview'
 import IndustriesGallery from '../components/IndustriesGallery'
 import CTASection from '../components/CTASection'
 import SEO from '../components/SEO'
@@ -48,6 +49,7 @@ export default function Homepage() {
       <div className="relative w-full">
         <LandingSection />
         <HeroServicesSection />
+        <ServicesPreview />
         <IndustriesGallery />
         <CTASection />
       </div>

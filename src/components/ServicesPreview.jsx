@@ -1,4 +1,4 @@
-import { ShoppingCart, Package, CheckCircle, ArrowRight, Sparkles } from 'lucide-react'
+import { ShoppingCart, Package, CheckCircle, ArrowRight, Sparkles, Stamp } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import ScrollReveal from './ScrollReveal'
 
@@ -21,6 +21,12 @@ export default function ServicesPreview() {
       title: "Logistics & Shipping",
       description: "Complete shipping and customs clearance from China to anywhere in the world.",
       highlight: "30% faster delivery"
+    },
+    {
+      icon: Stamp,
+      title: "Work Visa Assistance",
+      description: "Professional support for China work visa applications, renewals, and documentation.",
+      highlight: "Hassle-free process"
     }
   ]
 
@@ -44,7 +50,7 @@ export default function ServicesPreview() {
         </ScrollReveal>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {services.map((service, index) => {
             const IconComponent = service.icon
             return (
@@ -78,7 +84,7 @@ export default function ServicesPreview() {
         <ScrollReveal delay={300}>
           <div className="text-center">
             <Link
-              to="/services"
+              to="/sourcing/services"
               className="inline-flex items-center justify-center px-10 py-4 rounded-lg font-semibold text-base transition-all duration-200 shadow-lg hover:shadow-xl"
               style={{backgroundColor: 'var(--color-accent)', color: 'white', fontWeight: 600}}
               onMouseEnter={(e) => {

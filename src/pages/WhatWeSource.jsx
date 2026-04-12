@@ -1,8 +1,10 @@
 import { Smartphone, Home as HomeIcon, Bath, Wrench, Gamepad2, Briefcase, Package, ArrowRight, CheckCircle2, Globe2, Star, Zap } from 'lucide-react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import ScrollReveal from '../components/ScrollReveal'
 import Breadcrumb from '../components/Breadcrumb'
 import AnimatedCounter from '../components/AnimatedCounter'
+import PageHero from '../components/PageHero'
+import SectionCTA from '../components/SectionCTA'
 
 const categories = [
   {
@@ -105,44 +107,12 @@ export default function WhatWeSource() {
 
   return (
     <div style={{ background: 'var(--color-background)' }}>
-      {/* Hero Section */}
-      <section
-        className="section-dark relative overflow-hidden py-20 sm:py-24 lg:py-32"
-        data-dark-section
-      >
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1565008576549-57569a49371d?w=1920&h=1080&fit=crop"
-            alt=""
-            className="w-full h-full object-cover"
-            width={1920}
-            height={1080}
-          />
-          <div className="absolute inset-0" style={{background: 'linear-gradient(135deg, rgba(31, 63, 74, 0.92), rgba(47, 111, 115, 0.88))'}}></div>
-        </div>
-
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 -left-40 w-96 h-96 rounded-full blur-3xl" style={{backgroundColor: 'rgba(95, 115, 100, 0.15)'}}></div>
-          <div className="absolute bottom-0 -right-40 w-96 h-96 rounded-full blur-3xl" style={{backgroundColor: 'rgba(47, 111, 115, 0.2)'}}></div>
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm mb-6"
-            style={{backgroundColor: 'rgba(255, 255, 255, 0.1)', color: 'var(--color-accent-light)'}}
-          >
-            <span className="w-2 h-2 rounded-full" style={{backgroundColor: 'var(--color-accent-light)'}}></span>
-            Our Portfolio
-          </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl text-white mb-6">
-            We Source Whatever Your Business Needs
-          </h1>
-          <p className="text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed" style={{color: 'rgba(255, 255, 255, 0.85)'}}>
-            From electronics to sanitary ware, machinery to consumer goods — if it's made in China, we can source it
-          </p>
-        </div>
-      </section>
+      <PageHero
+        badge="Our Portfolio"
+        title="We Source Whatever Your Business Needs"
+        subtitle="From electronics to sanitary ware, machinery to consumer goods — if it's made in China, we can source it"
+        backgroundImage="https://images.unsplash.com/photo-1565008576549-57569a49371d?w=1920&h=1080&fit=crop"
+      />
 
       {/* Breadcrumb */}
       <div style={{background: 'var(--color-background-alt)'}}>
@@ -463,65 +433,15 @@ export default function WhatWeSource() {
         </div>
       </section>
 
-      {/* Bottom CTA Section */}
-      <section
-        className="section-dark py-20 sm:py-24"
-        data-dark-section
-      >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <ScrollReveal>
-            <div
-              className="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 mx-auto"
-              style={{background: 'rgba(255, 255, 255, 0.15)'}}
-            >
-              <Package className="h-8 w-8" style={{color: 'var(--color-accent-light)'}} />
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
-              Can't Find What You're Looking For?
-            </h2>
-            <p className="text-lg sm:text-xl mb-10 max-w-2xl mx-auto" style={{color: 'rgba(255, 255, 255, 0.85)'}}>
-              We source it all! Our network of vetted suppliers means we can find exactly what your business needs.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-base transition-all duration-200 shadow-lg hover:shadow-xl gap-2"
-                style={{backgroundColor: 'var(--color-accent)', color: 'white'}}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--color-accent-dark)';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--color-accent)';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                }}
-              >
-                Get a Free Quote
-                <ArrowRight className="h-5 w-5" />
-              </Link>
-              <Link
-                to="/services"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-base transition-all duration-200 gap-2"
-                style={{
-                  backgroundColor: 'transparent',
-                  color: 'white',
-                  border: '2px solid rgba(255, 255, 255, 0.3)'
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'transparent';
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-                }}
-              >
-                View Our Services
-              </Link>
-            </div>
-          </ScrollReveal>
-        </div>
-      </section>
+      <SectionCTA
+        icon={Package}
+        heading="Can't Find What You're Looking For?"
+        subtitle="We source it all! Our network of vetted suppliers means we can find exactly what your business needs."
+        primaryLink="/sourcing/contact"
+        primaryLabel="Get a Free Quote"
+        secondaryLink="/sourcing/services"
+        secondaryLabel="View Our Services"
+      />
     </div>
   )
 }

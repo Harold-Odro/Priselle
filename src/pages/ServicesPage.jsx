@@ -1,8 +1,9 @@
-import { Search, FileCheck, Handshake, ShieldCheck, Package, CheckCircle, Globe, Users, Shield, Clock, Quote, ArrowRight, ShoppingCart, Award } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Search, FileCheck, Handshake, ShieldCheck, Package, CheckCircle, Globe, Users, Shield, Clock, Quote, ShoppingCart, Award, Stamp } from 'lucide-react'
 import SEO from '../components/SEO'
 import ScrollReveal from '../components/ScrollReveal'
 import Breadcrumb from '../components/Breadcrumb'
+import PageHero from '../components/PageHero'
+import SectionCTA from '../components/SectionCTA'
 
 export default function ServicesPage() {
   const schema = {
@@ -40,6 +41,14 @@ export default function ServicesPage() {
             "@type": "Service",
             "name": "Logistics & Shipping",
             "description": "End-to-end shipping solutions from China to your destination worldwide"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Work Visa Assistance",
+            "description": "Professional guidance and support for China work visa applications and renewals"
           }
         }
       ]
@@ -108,7 +117,6 @@ export default function ServicesPage() {
         "Sample procurement and testing",
         "Supplier relationship management"
       ],
-      featured: true
     },
     {
       icon: ShieldCheck,
@@ -130,6 +138,17 @@ export default function ServicesPage() {
         "Customs clearance assistance",
         "Real-time shipment tracking",
         "Insurance coverage options"
+      ]
+    },
+    {
+      icon: Stamp,
+      title: "Work Visa Assistance",
+      description: "Professional guidance and support for China work visa applications, renewals, and documentation to help you work legally in China.",
+      features: [
+        "Work permit application support",
+        "Visa renewal assistance",
+        "Document preparation & review",
+        "Employer sponsorship guidance"
       ]
     }
   ]
@@ -166,44 +185,12 @@ export default function ServicesPage() {
         schema={schema}
       />
       <div style={{ background: 'var(--color-background)' }}>
-        {/* Header Section */}
-        <section
-          className="section-dark relative overflow-hidden py-20 sm:py-24 lg:py-32"
-          data-dark-section
-        >
-          {/* Background Image */}
-          <div className="absolute inset-0">
-            <img
-              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&h=1080&fit=crop"
-              alt=""
-              className="w-full h-full object-cover"
-              width={1920}
-              height={1080}
-            />
-            <div className="absolute inset-0" style={{background: 'linear-gradient(135deg, rgba(31, 63, 74, 0.92), rgba(47, 111, 115, 0.88))'}}></div>
-          </div>
-
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-0 -left-40 w-96 h-96 rounded-full blur-3xl" style={{backgroundColor: 'rgba(95, 115, 100, 0.15)'}}></div>
-            <div className="absolute bottom-0 -right-40 w-96 h-96 rounded-full blur-3xl" style={{backgroundColor: 'rgba(47, 111, 115, 0.2)'}}></div>
-          </div>
-
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm mb-6"
-              style={{backgroundColor: 'rgba(255, 255, 255, 0.1)', color: 'var(--color-accent-light)'}}
-            >
-              <span className="w-2 h-2 rounded-full" style={{backgroundColor: 'var(--color-accent-light)'}}></span>
-              What We Offer
-            </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl text-white mb-6">
-              Our Services
-            </h1>
-            <p className="text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed" style={{color: 'rgba(255, 255, 255, 0.85)'}}>
-              End-to-end B2B sourcing solutions connecting global businesses with China's manufacturing excellence
-            </p>
-          </div>
-        </section>
+        <PageHero
+          badge="What We Offer"
+          title="Our Services"
+          subtitle="End-to-end B2B sourcing solutions connecting global businesses with China's manufacturing excellence"
+          backgroundImage="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&h=1080&fit=crop"
+        />
 
         {/* Breadcrumb */}
         <Breadcrumb currentPage="Services" />
@@ -324,44 +311,39 @@ export default function ServicesPage() {
             </ScrollReveal>
 
             {/* Bento Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 gap-6">
               {services.map((service, index) => {
                 const Icon = service.icon
-                const isFeatured = service.featured
 
                 return (
                   <ScrollReveal key={index} delay={index * 100}>
                     <div
-                      className={`card rounded-2xl p-8 hover:shadow-xl transition-all duration-300 h-full group ${
-                        isFeatured ? 'md:col-span-2 lg:col-span-1 lg:row-span-2' : ''
-                      }`}
+                      className="card rounded-2xl p-8 hover:shadow-xl transition-all duration-300 h-full group"
                       style={{
-                        backgroundColor: isFeatured ? 'var(--color-primary)' : 'rgba(255, 255, 255, 0.95)',
+                        backgroundColor: 'rgba(255, 255, 255, 0.95)',
                       }}
                     >
                       <div
                         className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110"
                         style={{
-                          background: isFeatured
-                            ? 'rgba(255, 255, 255, 0.2)'
-                            : 'linear-gradient(145deg, var(--color-primary), var(--color-primary-light))'
+                          background: 'linear-gradient(145deg, var(--color-primary), var(--color-primary-light))'
                         }}
                       >
                         <Icon className="h-8 w-8 text-white" />
                       </div>
                       <h3
-                        className={`text-xl mb-3 ${isFeatured ? 'lg:text-2xl' : ''}`}
+                        className="text-xl mb-3"
                         style={{
-                          color: isFeatured ? 'white' : 'var(--color-text)',
+                          color: 'var(--color-text)',
                           fontWeight: 600
                         }}
                       >
                         {service.title}
                       </h3>
                       <p
-                        className={`leading-relaxed mb-6 ${isFeatured ? 'lg:text-lg' : ''}`}
+                        className="leading-relaxed mb-6"
                         style={{
-                          color: isFeatured ? 'rgba(255, 255, 255, 0.9)' : 'var(--color-text-light)'
+                          color: 'var(--color-text-light)'
                         }}
                       >
                         {service.description}
@@ -373,29 +355,17 @@ export default function ServicesPage() {
                           <div key={featureIndex} className="flex items-start gap-2">
                             <CheckCircle
                               className="h-5 w-5 flex-shrink-0 mt-0.5"
-                              style={{color: isFeatured ? 'var(--color-accent-light)' : 'var(--color-primary)'}}
+                              style={{color: 'var(--color-primary)'}}
                             />
                             <span
                               className="text-sm"
-                              style={{color: isFeatured ? 'rgba(255, 255, 255, 0.85)' : 'var(--color-text-light)'}}
+                              style={{color: 'var(--color-text-light)'}}
                             >
                               {feature}
                             </span>
                           </div>
                         ))}
                       </div>
-
-                      {isFeatured && (
-                        <div className="mt-8 pt-6 border-t border-white/20">
-                          <Link
-                            to="/contact"
-                            className="inline-flex items-center gap-2 text-white font-semibold group/link"
-                          >
-                            Get Started
-                            <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/link:translate-x-1" />
-                          </Link>
-                        </div>
-                      )}
                     </div>
                   </ScrollReveal>
                 )
@@ -486,91 +456,38 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* CTA Section with Testimonial */}
-        <section
-          className="section-dark py-20 sm:py-24"
-          data-dark-section
+        <SectionCTA
+          icon={Award}
+          heading="Ready to Start Your Sourcing Journey?"
+          subtitle="Get a free consultation and discover how we can help optimize your supply chain"
+          primaryLink="/sourcing/contact"
+          primaryLabel="Get a Free Quote"
+          secondaryLink="/sourcing/products"
+          secondaryLabel="View What We Source"
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* CTA Content */}
-              <ScrollReveal>
-                <div className="text-center md:text-left">
-                  <Award className="h-14 w-14 mb-6 mx-auto md:mx-0" style={{color: 'var(--color-accent-light)'}} />
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
-                    Ready to Start Your Sourcing Journey?
-                  </h2>
-                  <p className="text-lg sm:text-xl mb-8" style={{color: 'rgba(255, 255, 255, 0.85)'}}>
-                    Get a free consultation and discover how we can help optimize your supply chain
-                  </p>
-                  <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-                    <Link
-                      to="/contact"
-                      className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-base transition-all duration-200 shadow-lg hover:shadow-xl gap-2"
-                      style={{backgroundColor: 'var(--color-accent)', color: 'white'}}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = 'var(--color-accent-dark)';
-                        e.currentTarget.style.transform = 'translateY(-2px)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = 'var(--color-accent)';
-                        e.currentTarget.style.transform = 'translateY(0)';
-                      }}
-                    >
-                      Get a Free Quote
-                      <ArrowRight className="h-5 w-5" />
-                    </Link>
-                    <Link
-                      to="/products"
-                      className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-base transition-all duration-200 gap-2"
-                      style={{
-                        backgroundColor: 'transparent',
-                        color: 'white',
-                        border: '2px solid rgba(255, 255, 255, 0.3)'
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-                        e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = 'transparent';
-                        e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-                      }}
-                    >
-                      View What We Source
-                    </Link>
-                  </div>
-                </div>
-              </ScrollReveal>
-
-              {/* Mini Testimonial */}
-              <ScrollReveal delay={200}>
-                <div
-                  className="rounded-2xl p-8"
-                  style={{backgroundColor: 'rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)'}}
-                >
-                  <Quote className="h-10 w-10 mb-4 opacity-50" style={{color: 'var(--color-accent-light)'}} />
-                  <p className="text-lg text-white mb-6 leading-relaxed italic">
-                    "From sourcing to delivery, Priselle handled everything seamlessly. Their quality control
-                    saved us from potential issues and their communication was exceptional throughout."
-                  </p>
-                  <div className="flex items-center gap-4">
-                    <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold"
-                      style={{backgroundColor: 'var(--color-accent)'}}
-                    >
-                      SK
-                    </div>
-                    <div>
-                      <div className="text-white font-semibold">Sarah Kim</div>
-                      <div className="text-sm" style={{color: 'rgba(255, 255, 255, 0.7)'}}>Operations Director, TechGoods Inc.</div>
-                    </div>
-                  </div>
-                </div>
-              </ScrollReveal>
+          <div
+            className="rounded-2xl p-8"
+            style={{backgroundColor: 'rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)'}}
+          >
+            <Quote className="h-10 w-10 mb-4 opacity-50" style={{color: 'var(--color-accent-light)'}} />
+            <p className="text-lg text-white mb-6 leading-relaxed italic">
+              "From sourcing to delivery, Priselle handled everything seamlessly. Their quality control
+              saved us from potential issues and their communication was exceptional throughout."
+            </p>
+            <div className="flex items-center gap-4">
+              <div
+                className="w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold"
+                style={{backgroundColor: 'var(--color-accent)'}}
+              >
+                SK
+              </div>
+              <div>
+                <div className="text-white font-semibold">Sarah Kim</div>
+                <div className="text-sm" style={{color: 'rgba(255, 255, 255, 0.7)'}}>Operations Director, TechGoods Inc.</div>
+              </div>
             </div>
           </div>
-        </section>
+        </SectionCTA>
       </div>
     </>
   )

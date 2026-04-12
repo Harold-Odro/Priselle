@@ -25,7 +25,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  to="/services"
+                  to="/sourcing/services"
                   className="text-sm transition-colors duration-200"
                   style={{color: 'var(--color-gray-300)', opacity: 0.9}}
                   onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-accent)'}
@@ -36,7 +36,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  to="/products"
+                  to="/sourcing/products"
                   className="text-sm transition-colors duration-200"
                   style={{color: 'var(--color-gray-300)', opacity: 0.9}}
                   onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-accent)'}
@@ -47,7 +47,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  to="/about"
+                  to="/sourcing/about"
                   className="text-sm transition-colors duration-200"
                   style={{color: 'var(--color-gray-300)', opacity: 0.9}}
                   onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-accent)'}
@@ -58,7 +58,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  to="/contact"
+                  to="/sourcing/contact"
                   className="text-sm transition-colors duration-200"
                   style={{color: 'var(--color-gray-300)', opacity: 0.9}}
                   onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-accent)'}

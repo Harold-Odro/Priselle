@@ -3,11 +3,11 @@ import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 const NAV_LINKS = [
-  { to: '/', label: 'Home' },
-  { to: '/services', label: 'Services' },
-  { to: '/products', label: 'Products' },
-  { to: '/about', label: 'About' },
-  { to: '/contact', label: 'Contact' }
+  { to: '/sourcing', label: 'Home' },
+  { to: '/sourcing/services', label: 'Services' },
+  { to: '/sourcing/products', label: 'Products' },
+  { to: '/sourcing/about', label: 'About' },
+  { to: '/sourcing/contact', label: 'Contact' }
 ];
 
 export default function Navigation() {
@@ -75,7 +75,7 @@ export default function Navigation() {
         <div className="w-full px-6 sm:px-10 lg:px-16" style={{ height: '70px' }}>
           <div className="flex justify-between items-center h-full">
             {/* Logo - Left Aligned */}
-            <Link to="/" className="flex-shrink-0 flex items-center group">
+            <Link to="/sourcing" className="flex-shrink-0 flex items-center group">
               <img
                 src="/images/logo.JPG"
                 alt="Priselle"
@@ -179,7 +179,7 @@ export default function Navigation() {
               })}
 
               <Link
-                to="/contact"
+                to="/sourcing/contact"
                 className="mx-4 mt-4 px-6 py-3 rounded-xl font-semibold text-center shadow-md transition-all duration-200"
                 onClick={() => setIsMenuOpen(false)}
                 style={{

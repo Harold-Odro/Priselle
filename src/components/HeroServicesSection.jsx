@@ -88,7 +88,8 @@ export default function HeroServicesSection() {
       const cards = cardsRef.current.querySelectorAll('.service-card')
       const cardFinals = [
         { rotateY: 8, rotateX: 2, y: 20 },
-        { rotateY: 0, rotateX: 0, y: -10 },
+        { rotateY: 3, rotateX: 0, y: -10 },
+        { rotateY: -3, rotateX: 0, y: -10 },
         { rotateY: -8, rotateX: 2, y: 20 }
       ]
 
@@ -178,6 +179,12 @@ export default function HeroServicesSection() {
       emoji: '📦',
       title: 'Logistics & Shipping',
       description: 'Worldwide shipping from China'
+    },
+    {
+      icon: null,
+      emoji: '📋',
+      title: 'Work Visa',
+      description: 'China work visa application support'
     }
   ]
 

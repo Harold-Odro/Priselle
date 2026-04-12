@@ -186,7 +186,7 @@ export default function CTASection() {
         </p>
 
         <Link
-          to="/contact"
+          to="/sourcing/contact"
           className="cta-button"
           style={{
             display: 'inline-flex',

@@ -2,6 +2,7 @@ import { Mail, MapPin, Clock } from 'lucide-react'
 import ContactForm from '../components/ContactForm'
 import SEO from '../components/SEO'
 import Breadcrumb from '../components/Breadcrumb'
+import PageHero from '../components/PageHero'
 
 export default function ContactPage() {
   const schema = {
@@ -29,45 +30,12 @@ export default function ContactPage() {
         schema={schema}
       />
       <>
-        {/* Header Section */}
-        <section
-          className="section-dark relative py-20 sm:py-24 lg:py-32 overflow-hidden"
-          data-dark-section
-        >
-          {/* Background Image */}
-          <div className="absolute inset-0">
-            <img
-              src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&h=1080&fit=crop"
-              alt=""
-              className="w-full h-full object-cover"
-              width={1920}
-              height={1080}
-            />
-            <div className="absolute inset-0" style={{background: 'linear-gradient(135deg, rgba(31, 63, 74, 0.92), rgba(47, 111, 115, 0.88))'}}></div>
-          </div>
-
-          {/* Glow effects */}
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-0 -left-40 w-96 h-96 rounded-full blur-3xl" style={{backgroundColor: 'rgba(95, 115, 100, 0.15)'}}></div>
-            <div className="absolute bottom-0 -right-40 w-96 h-96 rounded-full blur-3xl" style={{backgroundColor: 'rgba(47, 111, 115, 0.2)'}}></div>
-          </div>
-
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm mb-6"
-              style={{backgroundColor: 'rgba(255, 255, 255, 0.1)', color: 'var(--color-accent-light)'}}
-            >
-              <span className="w-2 h-2 rounded-full" style={{backgroundColor: 'var(--color-accent-light)'}}></span>
-              Get In Touch
-            </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl text-white mb-6">
-              Contact Us
-            </h1>
-            <p className="text-lg sm:text-xl leading-relaxed max-w-3xl mx-auto" style={{color: 'rgba(255, 255, 255, 0.85)'}}>
-              Interested in our sourcing services or need advice? Then please get in touch and we'll be glad to help.
-            </p>
-          </div>
-        </section>
+        <PageHero
+          badge="Get In Touch"
+          title="Contact Us"
+          subtitle="Interested in our sourcing services or need advice? Then please get in touch and we'll be glad to help."
+          backgroundImage="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?w=1920&h=1080&fit=crop"
+        />
 
         {/* Breadcrumb */}
         <div style={{background: 'var(--color-background-alt)'}}>

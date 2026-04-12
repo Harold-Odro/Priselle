@@ -3,6 +3,8 @@ import ScrollReveal from '../components/ScrollReveal'
 import AnimatedCounter from '../components/AnimatedCounter'
 import SEO from '../components/SEO'
 import Breadcrumb from '../components/Breadcrumb'
+import PageHero from '../components/PageHero'
+import SectionCTA from '../components/SectionCTA'
 
 export default function AboutPage() {
   const stats = [
@@ -97,64 +99,23 @@ export default function AboutPage() {
       />
 
       <div style={{ background: 'var(--color-background)' }}>
-        {/* Hero Section - Split Screen */}
-        <section
-          className="section-dark relative overflow-hidden py-20 sm:py-24 lg:py-32"
-          data-dark-section
+        <PageHero
+          badge="About Priselle"
+          title={<>Your Trusted Bridge to<span className="block mt-2" style={{color: 'var(--color-accent-light)'}}>China's Manufacturing Excellence</span></>}
+          subtitle="We connect global businesses with premium Chinese manufacturers, ensuring quality, competitive pricing, and seamless delivery for every project."
+          backgroundImage="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&h=1080&fit=crop"
         >
-          {/* Background Image */}
-          <div className="absolute inset-0">
-            <img
-              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&h=1080&fit=crop"
-              alt=""
-              className="w-full h-full object-cover"
-              width={1920}
-              height={1080}
-            />
-            <div className="absolute inset-0" style={{background: 'linear-gradient(135deg, rgba(31, 63, 74, 0.92), rgba(47, 111, 115, 0.88))'}}></div>
-          </div>
-
-          <div className="absolute inset-0 overflow-hidden pointer-events-none">
-            <div className="absolute top-0 -left-40 w-96 h-96 rounded-full blur-3xl" style={{backgroundColor: 'rgba(95, 115, 100, 0.15)'}}></div>
-            <div className="absolute bottom-0 -right-40 w-96 h-96 rounded-full blur-3xl" style={{backgroundColor: 'rgba(47, 111, 115, 0.2)'}}></div>
-          </div>
-
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm mb-6"
-              style={{backgroundColor: 'rgba(255, 255, 255, 0.1)', color: 'var(--color-accent-light)'}}
+          <div className="flex flex-wrap gap-4 justify-center mt-8">
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-base transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5 gap-2"
+              style={{backgroundColor: 'var(--color-accent)', color: 'white'}}
             >
-              <span className="w-2 h-2 rounded-full" style={{backgroundColor: 'var(--color-accent-light)'}}></span>
-              About Priselle
-            </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl text-white mb-6">
-              Your Trusted Bridge to
-              <span className="block mt-2" style={{color: 'var(--color-accent-light)'}}>China's Manufacturing Excellence</span>
-            </h1>
-            <p className="text-lg sm:text-xl mb-8 leading-relaxed max-w-3xl mx-auto" style={{color: 'rgba(255, 255, 255, 0.85)'}}>
-              We connect global businesses with premium Chinese manufacturers,
-              ensuring quality, competitive pricing, and seamless delivery for every project.
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <a
-                href="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-base transition-all duration-200 shadow-lg hover:shadow-xl gap-2"
-                style={{backgroundColor: 'var(--color-accent)', color: 'white'}}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--color-accent-dark)';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--color-accent)';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                }}
-              >
-                Start Your Project
-                <ArrowRight className="h-5 w-5" />
-              </a>
-            </div>
+              Start Your Project
+              <ArrowRight className="h-5 w-5" />
+            </a>
           </div>
-        </section>
+        </PageHero>
 
         {/* Breadcrumb */}
         <div style={{background: 'var(--color-background-alt)'}}>
@@ -492,91 +453,38 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* CTA Section with Testimonial */}
-        <section
-          className="section-dark py-20 sm:py-24"
-          data-dark-section
+        <SectionCTA
+          icon={Award}
+          heading="Ready to Source with Confidence?"
+          subtitle="Join hundreds of successful businesses who trust Priselle for their sourcing needs"
+          primaryLink="/sourcing/contact"
+          primaryLabel="Start Your Project"
+          secondaryLink="/sourcing/services"
+          secondaryLabel="View Our Services"
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* CTA Content */}
-              <ScrollReveal>
-                <div className="text-center md:text-left">
-                  <Award className="h-14 w-14 mb-6 mx-auto md:mx-0" style={{color: 'var(--color-accent-light)'}} />
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl text-white mb-6">
-                    Ready to Source with Confidence?
-                  </h2>
-                  <p className="text-lg sm:text-xl mb-8" style={{color: 'rgba(255, 255, 255, 0.85)'}}>
-                    Join hundreds of successful businesses who trust Priselle for their sourcing needs
-                  </p>
-                  <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-                    <a
-                      href="/contact"
-                      className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-base transition-all duration-200 shadow-lg hover:shadow-xl gap-2"
-                      style={{backgroundColor: 'var(--color-accent)', color: 'white'}}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = 'var(--color-accent-dark)';
-                        e.currentTarget.style.transform = 'translateY(-2px)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = 'var(--color-accent)';
-                        e.currentTarget.style.transform = 'translateY(0)';
-                      }}
-                    >
-                      Start Your Project
-                      <ArrowRight className="h-5 w-5" />
-                    </a>
-                    <a
-                      href="/services"
-                      className="inline-flex items-center justify-center px-8 py-4 rounded-xl font-semibold text-base transition-all duration-200 gap-2"
-                      style={{
-                        backgroundColor: 'transparent',
-                        color: 'white',
-                        border: '2px solid rgba(255, 255, 255, 0.3)'
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
-                        e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.5)';
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = 'transparent';
-                        e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.3)';
-                      }}
-                    >
-                      View Our Services
-                    </a>
-                  </div>
-                </div>
-              </ScrollReveal>
-
-              {/* Mini Testimonial */}
-              <ScrollReveal delay={200}>
-                <div
-                  className="rounded-2xl p-8"
-                  style={{backgroundColor: 'rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)'}}
-                >
-                  <Quote className="h-10 w-10 mb-4 opacity-50" style={{color: 'var(--color-accent-light)'}} />
-                  <p className="text-lg text-white mb-6 leading-relaxed italic">
-                    "Working with Priselle transformed our supply chain. Their attention to quality
-                    and transparent communication made sourcing from China seamless and stress-free."
-                  </p>
-                  <div className="flex items-center gap-4">
-                    <div
-                      className="w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold"
-                      style={{backgroundColor: 'var(--color-accent)'}}
-                    >
-                      JM
-                    </div>
-                    <div>
-                      <div className="text-white font-semibold">James Mitchell</div>
-                      <div className="text-sm" style={{color: 'rgba(255, 255, 255, 0.7)'}}>CEO, Mitchell Imports</div>
-                    </div>
-                  </div>
-                </div>
-              </ScrollReveal>
+          <div
+            className="rounded-2xl p-8"
+            style={{backgroundColor: 'rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)'}}
+          >
+            <Quote className="h-10 w-10 mb-4 opacity-50" style={{color: 'var(--color-accent-light)'}} />
+            <p className="text-lg text-white mb-6 leading-relaxed italic">
+              "Working with Priselle transformed our supply chain. Their attention to quality
+              and transparent communication made sourcing from China seamless and stress-free."
+            </p>
+            <div className="flex items-center gap-4">
+              <div
+                className="w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold"
+                style={{backgroundColor: 'var(--color-accent)'}}
+              >
+                JM
+              </div>
+              <div>
+                <div className="text-white font-semibold">James Mitchell</div>
+                <div className="text-sm" style={{color: 'rgba(255, 255, 255, 0.7)'}}>CEO, Mitchell Imports</div>
+              </div>
             </div>
           </div>
-        </section>
+        </SectionCTA>
       </div>
     </>
   )

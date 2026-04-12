@@ -1,0 +1,353 @@
+/* ═══════════════════════════════════════════════════════════
+   PRISELLE SOUVENIRS & GIFTS — Coming Soon
+   Color scheme: Sourcing & Trade (Teal + Olive)
+   ═══════════════════════════════════════════════════════════ */
+
+.souvenirs-page {
+  --sv-teal: #2F6F73;
+  --sv-teal-dark: #1F3F4A;
+  --sv-teal-light: #4A8A8E;
+  --sv-olive: #3D5A45;
+  --sv-olive-light: #5F7364;
+
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  font-family: 'Outfit', system-ui, sans-serif;
+  color: #fff;
+  isolation: isolate;
+}
+
+/* ─── Background ─────────────────────────────────────────── */
+.souvenirs-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.souvenirs-bg__gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 10%, rgba(47, 111, 115, 0.35) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 45% at 80% 90%, rgba(61, 90, 69, 0.25) 0%, transparent 50%),
+    linear-gradient(170deg, #0F2025 0%, #162D33 30%, var(--sv-teal-dark) 100%);
+}
+
+.souvenirs-bg__orbs {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.souvenirs-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.3;
+}
+
+.souvenirs-orb--1 {
+  width: 450px;
+  height: 450px;
+  top: -12%;
+  right: -8%;
+  background: radial-gradient(circle, var(--sv-teal), transparent 70%);
+  animation: orbFloat 16s ease-in-out infinite;
+}
+
+.souvenirs-orb--2 {
+  width: 350px;
+  height: 350px;
+  bottom: -8%;
+  left: -6%;
+  background: radial-gradient(circle, var(--sv-olive), transparent 70%);
+  animation: orbFloat 20s ease-in-out infinite reverse;
+}
+
+.souvenirs-orb--3 {
+  width: 250px;
+  height: 250px;
+  top: 45%;
+  left: 55%;
+  background: radial-gradient(circle, rgba(74, 138, 142, 0.4), transparent 70%);
+  animation: orbFloat 12s ease-in-out infinite 3s;
+}
+
+/* Subtle diamond pattern */
+.souvenirs-bg__pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(45deg, rgba(255, 255, 255, 0.015) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(255, 255, 255, 0.015) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(255, 255, 255, 0.015) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(255, 255, 255, 0.015) 75%);
+  background-size: 40px 40px;
+  background-position: 0 0, 0 20px, 20px -20px, -20px 0;
+  pointer-events: none;
+}
+
+
+/* ─── Content ────────────────────────────────────────────── */
+.souvenirs-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem 2rem 2rem;
+}
+
+/* ─── Nav ────────────────────────────────────────────────── */
+.souvenirs-nav {
+  flex-shrink: 0;
+}
+
+.souvenirs-nav__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 0.3s ease, gap 0.3s ease;
+}
+
+.souvenirs-nav__back:hover {
+  color: #fff;
+  gap: 0.75rem;
+}
+
+/* ─── Main ───────────────────────────────────────────────── */
+.souvenirs-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 3rem 0;
+  gap: 0;
+}
+
+/* Icon */
+.souvenirs-icon {
+  width: 72px;
+  height: 72px;
+  color: var(--sv-teal-light);
+  margin-bottom: 1.75rem;
+  filter: drop-shadow(0 0 20px rgba(74, 138, 142, 0.3));
+}
+
+.souvenirs-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Badge */
+.souvenirs-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--sv-teal-dark);
+  background: linear-gradient(135deg, var(--sv-teal-light), var(--sv-olive-light));
+  padding: 0.4rem 1.25rem;
+  border-radius: 100px;
+  margin-bottom: 1.75rem;
+}
+
+/* Title */
+.souvenirs-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.5rem, 7vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0 0 1.25rem;
+  text-shadow: 0 4px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Divider */
+.souvenirs-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+  transform-origin: center;
+}
+
+.souvenirs-divider span {
+  display: block;
+  background: rgba(74, 138, 142, 0.5);
+}
+
+.souvenirs-divider span:nth-child(1),
+.souvenirs-divider span:nth-child(3) {
+  width: 40px;
+  height: 1px;
+}
+
+.souvenirs-divider span:nth-child(2) {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--sv-teal-light);
+  box-shadow: 0 0 10px rgba(74, 138, 142, 0.5);
+}
+
+/* Description */
+.souvenirs-desc {
+  font-size: clamp(1rem, 2vw, 1.1rem);
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0 0 2rem;
+  max-width: 460px;
+}
+
+/* Tags */
+.souvenirs-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 2.5rem;
+}
+
+.souvenirs-tag {
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 0.45rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  transition: border-color 0.3s ease, color 0.3s ease;
+  cursor: default;
+}
+
+.souvenirs-tag:hover {
+  border-color: rgba(74, 138, 142, 0.4);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Actions */
+.souvenirs-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.souvenirs-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.9rem 1.75rem;
+  background: var(--sv-teal);
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 8px 30px rgba(47, 111, 115, 0.3);
+}
+
+.souvenirs-cta-primary:hover {
+  background: var(--sv-teal-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(47, 111, 115, 0.45);
+  color: #fff;
+  gap: 0.85rem;
+}
+
+.souvenirs-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.9rem 1.5rem;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.souvenirs-cta-secondary:hover {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* ─── Footer ─────────────────────────────────────────────── */
+.souvenirs-footer {
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.souvenirs-footer p {
+  font-size: 0.75rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.25);
+  margin: 0;
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 640px) {
+  .souvenirs-content {
+    padding: 1.25rem 1.25rem 1.5rem;
+  }
+
+  .souvenirs-title {
+    font-size: 2.25rem;
+  }
+
+  .souvenirs-icon {
+    width: 56px;
+    height: 56px;
+  }
+
+  .souvenirs-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .souvenirs-cta-primary,
+  .souvenirs-cta-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .souvenirs-tags {
+    gap: 0.5rem;
+  }
+
+  .souvenirs-tag {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.8rem;
+  }
+}

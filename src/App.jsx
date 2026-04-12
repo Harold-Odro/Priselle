@@ -5,18 +5,20 @@ import Layout from './components/Layout'
 import ScrollToTop from './components/ScrollToTop'
 import SplashScreen from './components/SplashScreen'
 import WhatsAppButton from './components/WhatsAppButton'
-import StickyMobileCTA from './components/StickyMobileCTA'
 import BackToTop from './components/BackToTop'
 import PageSkeleton from './components/PageSkeleton'
 import AnimationContext from './contexts/AnimationContext'
 import './App.css'
 
 // Lazy load pages
+const EntryPage = lazy(() => import('./pages/EntryPage'))
 const Homepage = lazy(() => import('./pages/Homepage'))
 const WhatWeSource = lazy(() => import('./pages/WhatWeSource'))
 const ServicesPage = lazy(() => import('./pages/ServicesPage'))
 const AboutPage = lazy(() => import('./pages/AboutPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
+const FreightPage = lazy(() => import('./pages/FreightPage'))
+const SouvenirsPage = lazy(() => import('./pages/SouvenirsPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
 
@@ -52,14 +54,21 @@ export default function App() {
           <ScrollToTop />
           <Suspense fallback={<PageSkeleton />}>
             <Routes>
+              {/* Entry portal - no navigation */}
+              <Route path="/" element={<EntryPage />} />
+
               {/* Priselle Sourcing and Trade routes - with navigation */}
-              <Route element={<Layout />}>
-                <Route path="/" element={<Homepage />} />
-                <Route path="/products" element={<WhatWeSource />} />
-                <Route path="/services" element={<ServicesPage />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/contact" element={<ContactPage />} />
+              <Route path="/sourcing" element={<Layout />}>
+                <Route index element={<Homepage />} />
+                <Route path="products" element={<WhatWeSource />} />
+                <Route path="services" element={<ServicesPage />} />
+                <Route path="about" element={<AboutPage />} />
+                <Route path="contact" element={<ContactPage />} />
               </Route>
+
+              {/* Placeholder routes for other divisions */}
+              <Route path="/souvenirs" element={<SouvenirsPage />} />
+              <Route path="/freight" element={<FreightPage />} />
 
               {/* 404 page - no navigation */}
               <Route path="*" element={<NotFoundPage />} />
@@ -69,7 +78,6 @@ export default function App() {
             <>
               <BackToTop />
               <WhatsAppButton />
-              <StickyMobileCTA />
             </>
           )}
         </Router>

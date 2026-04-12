@@ -103,7 +103,7 @@ export default function LandingSection() {
     <section className="landing-section section-dark" data-dark-section>
       {/* Multi-layer background */}
       <div className="landing-bg"></div>
-      <div className="landing-grain"></div>
+      <div className="grain-overlay"></div>
 
       {/* Decorative elements */}
       <div className="landing-decor">
