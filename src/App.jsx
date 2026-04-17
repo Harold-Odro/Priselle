@@ -18,6 +18,8 @@ const ServicesPage = lazy(() => import('./pages/ServicesPage'))
 const AboutPage = lazy(() => import('./pages/AboutPage'))
 const ContactPage = lazy(() => import('./pages/ContactPage'))
 const FreightPage = lazy(() => import('./pages/FreightPage'))
+const FreightServicesPage = lazy(() => import('./pages/FreightServicesPage'))
+const FreightContactPage = lazy(() => import('./pages/FreightContactPage'))
 const SouvenirsPage = lazy(() => import('./pages/SouvenirsPage'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage'))
 
@@ -69,6 +71,8 @@ export default function App() {
               {/* Placeholder routes for other divisions */}
               <Route path="/souvenirs" element={<SouvenirsPage />} />
               <Route path="/freight" element={<FreightPage />} />
+              <Route path="/freight/services" element={<FreightServicesPage />} />
+              <Route path="/freight/contact" element={<FreightContactPage />} />
 
               {/* 404 page - no navigation */}
               <Route path="*" element={<NotFoundPage />} />

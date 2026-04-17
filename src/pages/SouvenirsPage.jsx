@@ -34,7 +34,7 @@ export default function SouvenirsPage() {
               <path d="M19 12H5" />
               <path d="M12 19l-7-7 7-7" />
             </svg>
-            <span>Priselle Group</span>
+            <span>Priselle Holdings</span>
           </Link>
         </motion.nav>
 

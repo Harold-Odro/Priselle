@@ -43,10 +43,10 @@ const divisions = [
   },
   {
     id: 'freight',
-    title: 'Global Logistics',
+    title: 'Freight and Logistics',
     subtitle: 'Reliable Delivery',
     description:
-      'Comprehensive freight forwarding and logistics management. Sea, air, and land — your cargo delivered safely and on time.',
+      'Sea shipping from China to Ghana with warehouse management, quality control, and RMB payment services. Ship smart. Ship secure.',
     icon: (
       <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M2 32h28V12H2z" />
@@ -131,7 +131,7 @@ export default function EntryPage() {
 
         {/* Footer */}
         <footer className="entry-footer">
-          <p>&copy; {new Date().getFullYear()} Priselle Group. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Priselle Holdings. All rights reserved.</p>
         </footer>
       </div>
     </div>

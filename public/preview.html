@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Priselle Homepage Redesign Preview</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-primary: #2F6F73;
+      --color-primary-dark: #1F3F4A;
+      --color-primary-light: #4A8A8E;
+      --color-accent: #3D5A45;
+      --color-accent-dark: #2D4535;
+      --color-accent-light: #5F7364;
+      --color-background: #ECFFDC;
+      --color-background-alt: #F5FFF0;
+      --color-background-section: #E8FAD8;
+      --color-text: #1C1C1C;
+      --color-text-light: #4A4A4A;
+      --color-text-muted: #6A7A6A;
+      --color-border: #D4E5D4;
+      --color-gray-200: #E2E8E2;
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Outfit', system-ui, sans-serif;
+      color: var(--color-text);
+      line-height: 1.6;
+      background: var(--color-background);
+    }
+
+    h1, h2, h3 { font-family: 'Playfair Display', serif; }
+
+    /* ===== SECTION 1: LANDING (simplified placeholder) ===== */
+    .landing {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, rgba(31, 63, 74, 0.92), rgba(47, 111, 115, 0.85)),
+                  url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1920&h=1080&fit=crop') center/cover;
+      overflow: hidden;
+    }
+    .landing::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -160px;
+      width: 384px; height: 384px;
+      border-radius: 50%;
+      background: rgba(95, 115, 100, 0.15);
+      filter: blur(48px);
+    }
+    .landing::after {
+      content: '';
+      position: absolute;
+      bottom: 0; right: -160px;
+      width: 384px; height: 384px;
+      border-radius: 50%;
+      background: rgba(47, 111, 115, 0.2);
+      filter: blur(48px);
+    }
+    .landing-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 1rem;
+    }
+    .landing-logo {
+      width: 120px; height: 120px;
+      margin: 0 auto 2rem;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 2px solid rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      color: white;
+      font-weight: 300;
+    }
+    .landing h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(4rem, 10vw, 8rem);
+      color: white;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .landing-tagline {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+    .landing-divider {
+      width: 80px;
+      height: 1px;
+      background: rgba(255,255,255,0.3);
+      margin: 0 auto 1.5rem;
+    }
+    .landing-subtitle {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.7);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* ===== SECTION 2: OVERLAPPING CARDS ===== */
+    .overlap-section {
+      position: relative;
+      z-index: 10;
+      margin-top: -80px;
+      padding: 0 1rem 4rem;
+    }
+    .overlap-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .overlap-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      box-shadow: var(--shadow-xl);
+      transition: all 0.3s ease;
+      border-top: 3px solid transparent;
+    }
+    .overlap-card:hover {
+      transform: translateY(-8px);
+      border-top-color: var(--color-primary);
+      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15);
+    }
+    .overlap-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 1rem;
+      color: var(--color-text);
+    }
+    .overlap-card p {
+      color: var(--color-text-light);
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+      line-height: 1.7;
+    }
+    .overlap-card-items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .overlap-card-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--color-text-light);
+    }
+    .overlap-card-item .icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--color-background);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      color: var(--color-primary);
+    }
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: gap 0.2s;
+    }
+    .card-link:hover { gap: 0.6rem; }
+
+    /* ===== SECTION 3: COMPANY OVERVIEW ===== */
+    .overview-section {
+      background: var(--color-background-alt);
+      padding: 5rem 1rem 0;
+    }
+    .overview-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .overview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      margin-bottom: 4rem;
+    }
+    .overview-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      background: rgba(47, 111, 115, 0.1);
+      color: var(--color-primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+    }
+    .overview-badge::before {
+      content: '';
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--color-primary);
+    }
+    .overview-text h2 {
+      font-size: clamp(1.8rem, 4vw, 2.75rem);
+      color: var(--color-text);
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
+    }
+    .overview-text p {
+      color: var(--color-text-light);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+    .overview-image {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: var(--shadow-xl);
+    }
+    .overview-image img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
+    }
+    .stats-band {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      padding: 3rem 0;
+      border-top: 1px solid var(--color-border);
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-number {
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 600;
+      color: var(--color-primary);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-label {
+      font-size: 0.875rem;
+      color: var(--color-text-light);
+    }
+
+    /* ===== SECTION 4: SERVICE CARDS ON DARK BG ===== */
+    .services-dark {
+      position: relative;
+      padding: 5rem 1rem;
+      background: linear-gradient(135deg, rgba(31, 63, 74, 0.93), rgba(47, 111, 115, 0.9)),
+                  url('https://images.unsplash.com/photo-1553413077-190dd305871c?w=1920&h=1080&fit=crop') center/cover;
+    }
+    .services-dark-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .services-dark .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--color-accent-light);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+    }
+    .services-dark .section-badge::before {
+      content: '';
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--color-accent-light);
+    }
+    .services-dark-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .services-dark-header h2 {
+      font-size: clamp(1.8rem, 4vw, 2.75rem);
+      color: white;
+      margin-bottom: 1rem;
+    }
+    .services-dark-header p {
+      color: rgba(255,255,255,0.8);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .services-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.75rem;
+    }
+    .service-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    }
+    .service-card .icon-wrap {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 1.5rem;
+      border-radius: 16px;
+      background: linear-gradient(145deg, var(--color-primary), var(--color-primary-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+    }
+    .service-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: var(--color-text);
+    }
+    .service-card p {
+      color: var(--color-text-light);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .service-card .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.6rem 1.5rem;
+      border-radius: 10px;
+      background: var(--color-primary);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    .service-card .btn:hover {
+      background: var(--color-primary-dark);
+      transform: translateY(-2px);
+    }
+
+    /* ===== SECTION 5: CORE FOCUS ===== */
+    .core-section {
+      background: var(--color-background);
+      padding: 5rem 1rem;
+    }
+    .core-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .core-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+    .core-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      background: rgba(47, 111, 115, 0.1);
+      color: var(--color-primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+    }
+    .core-badge::before {
+      content: '';
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--color-primary);
+    }
+    .core-header h2 {
+      font-size: clamp(1.8rem, 4vw, 2.75rem);
+      color: var(--color-text);
+      margin-bottom: 1rem;
+    }
+    .core-header p {
+      color: var(--color-text-light);
+      font-size: 1.05rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .core-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    .core-item {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border-radius: 16px;
+      background: white;
+      border: 1px solid var(--color-border);
+      transition: all 0.3s;
+    }
+    .core-item:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--color-primary-light);
+    }
+    .core-item .icon-circle {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 1.25rem;
+      border-radius: 50%;
+      background: rgba(47, 111, 115, 0.08);
+      border: 2px solid rgba(47, 111, 115, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: var(--color-primary);
+      transition: all 0.3s;
+    }
+    .core-item:hover .icon-circle {
+      background: var(--color-primary);
+      color: white;
+      border-color: var(--color-primary);
+    }
+    .core-item h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: var(--color-text);
+    }
+    .core-item p {
+      color: var(--color-text-light);
+      font-size: 0.875rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .core-item .learn-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-primary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      transition: gap 0.2s;
+    }
+    .core-item .learn-link:hover { gap: 0.5rem; }
+
+    /* ===== SECTION 6: INDUSTRIES GALLERY PLACEHOLDER ===== */
+    .gallery-placeholder {
+      background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+      padding: 5rem 1rem;
+      text-align: center;
+    }
+    .gallery-placeholder h2 {
+      color: white;
+      font-size: clamp(1.8rem, 4vw, 2.75rem);
+      margin-bottom: 1rem;
+    }
+    .gallery-placeholder p {
+      color: rgba(255,255,255,0.7);
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+    .gallery-placeholder-note {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.1);
+      color: rgba(255,255,255,0.6);
+      font-size: 0.9rem;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    /* ===== SECTION 7: CTA PLACEHOLDER ===== */
+    .cta-placeholder {
+      background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
+      padding: 5rem 1rem;
+      text-align: center;
+    }
+    .cta-card {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 3rem;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+    }
+    .cta-card h2 {
+      color: white;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      margin-bottom: 1rem;
+    }
+    .cta-card p {
+      color: rgba(255,255,255,0.8);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.9rem 2rem;
+      border-radius: 12px;
+      background: var(--color-primary);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .cta-btn:hover {
+      background: var(--color-primary-light);
+      transform: translateY(-2px);
+    }
+
+    /* ===== SECTION LABELS ===== */
+    .section-label {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-family: 'Outfit', sans-serif;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      z-index: 20;
+    }
+    .section-label.new { background: var(--color-primary); }
+    .section-label.keep { background: rgba(0,0,0,0.35); }
+
+    /* Make sections relative for labels */
+    .landing, .overlap-section, .overview-section, .services-dark, .core-section, .gallery-placeholder, .cta-placeholder {
+      position: relative;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .overlap-grid { grid-template-columns: 1fr; }
+      .overlap-section { margin-top: -40px; }
+      .overview-grid { grid-template-columns: 1fr; }
+      .overview-image { order: -1; }
+      .services-cards-grid { grid-template-columns: 1fr; }
+      .core-grid { grid-template-columns: 1fr 1fr; }
+      .stats-band { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .core-grid { grid-template-columns: 1fr; }
+      .stats-band { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SECTION 1: LANDING (kept — simplified placeholder) -->
+  <section class="landing">
+    <span class="section-label keep">KEPT — Landing Section</span>
+    <div class="landing-content">
+      <div class="landing-logo">P</div>
+      <h1>Priselle</h1>
+      <div class="landing-tagline">Sourcing &amp; Trade</div>
+      <div class="landing-divider"></div>
+      <p class="landing-subtitle">Connecting Global Businesses with China's Manufacturing Excellence</p>
+    </div>
+  </section>
+
+  <!-- SECTION 2: OVERLAPPING CARDS (NEW) -->
+  <section class="overlap-section">
+    <span class="section-label new">NEW — Overlapping Cards</span>
+    <div class="overlap-grid">
+      <!-- Card 1: About Us -->
+      <div class="overlap-card">
+        <h3>About Us</h3>
+        <p>Founded in China with deep roots in global trade, Priselle bridges the gap between international businesses and China's vast manufacturing ecosystem. We're your trusted sourcing partner.</p>
+        <a href="#" class="card-link">Learn More →</a>
+      </div>
+
+      <!-- Card 2: Our Services -->
+      <div class="overlap-card">
+        <h3>Our Services</h3>
+        <div class="overlap-card-items">
+          <div class="overlap-card-item">
+            <span class="icon">🛒</span>
+            <span>Product Sourcing</span>
+          </div>
+          <div class="overlap-card-item">
+            <span class="icon">🏭</span>
+            <span>Warehouse & Inventory</span>
+          </div>
+          <div class="overlap-card-item">
+            <span class="icon">📦</span>
+            <span>Shipping & Logistics</span>
+          </div>
+          <div class="overlap-card-item">
+            <span class="icon">🤝</span>
+            <span>China Concierge</span>
+          </div>
+          <div class="overlap-card-item">
+            <span class="icon">📋</span>
+            <span>Work Visa Support</span>
+          </div>
+          <div class="overlap-card-item">
+            <span class="icon">✓</span>
+            <span>QC & Repackaging</span>
+          </div>
+        </div>
+        <a href="#" class="card-link">View All Services →</a>
+      </div>
+
+      <!-- Card 3: Industries -->
+      <div class="overlap-card">
+        <h3>Industries We Serve</h3>
+        <div class="overlap-card-items">
+          <div class="overlap-card-item">
+            <span class="icon">🏠</span>
+            <span>Home & Living</span>
+          </div>
+          <div class="overlap-card-item">
+            <span class="icon">📱</span>
+            <span>Electronics</span>
+          </div>
+          <div class="overlap-card-item">
+            <span class="icon">🔧</span>
+            <span>Construction</span>
+          </div>
+          <div class="overlap-card-item">
+            <span class="icon">☀️</span>
+            <span>Energy & Solar</span>
+          </div>
+        </div>
+        <a href="#" class="card-link">Explore Categories →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: COMPANY OVERVIEW (NEW) -->
+  <section class="overview-section">
+    <span class="section-label new">NEW — Company Overview</span>
+    <div class="overview-container">
+      <div class="overview-grid">
+        <div class="overview-text">
+          <div class="overview-badge">Company Overview</div>
+          <h2>Connecting Businesses with China's Best</h2>
+          <p>At Priselle Sourcing and Trade, we specialize in bridging the gap between global businesses and China's extensive manufacturing capabilities. With years of experience and a deep network of verified suppliers, we ensure every sourcing project meets the highest standards of quality and reliability.</p>
+          <p>Whether you need bulk manufacturing, custom products, or quality inspections — our team provides comprehensive end-to-end solutions tailored to your business needs.</p>
+        </div>
+        <div class="overview-image">
+          <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop" alt="Professional office" />
+        </div>
+      </div>
+      <div class="stats-band">
+        <div class="stat-item">
+          <div class="stat-number">10+</div>
+          <div class="stat-label">Years Industry Experience</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">50+</div>
+          <div class="stat-label">Vetted Suppliers</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Client Support</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Commitment to Quality</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: SERVICE CARDS ON DARK BG (NEW) -->
+  <section class="services-dark">
+    <span class="section-label new">NEW — Service Cards</span>
+    <div class="services-dark-container">
+      <div class="services-dark-header">
+        <div class="section-badge">What We Do</div>
+        <h2>Our Services</h2>
+        <p>End-to-end sourcing solutions designed for businesses worldwide</p>
+      </div>
+      <div class="services-cards-grid">
+        <div class="service-card">
+          <div class="icon-wrap">🛒</div>
+          <h3>Product Sourcing</h3>
+          <p>We identify, vet, and connect you with the best Chinese manufacturers and suppliers for your specific product requirements.</p>
+          <a href="#" class="btn">Learn More →</a>
+        </div>
+        <div class="service-card">
+          <div class="icon-wrap">📦</div>
+          <h3>Shipping & Logistics</h3>
+          <p>Full logistics management including freight forwarding, customs clearance, and worldwide door-to-door delivery.</p>
+          <a href="#" class="btn">Learn More →</a>
+        </div>
+        <div class="service-card">
+          <div class="icon-wrap">✓</div>
+          <h3>Quality Control & Repackaging</h3>
+          <p>Comprehensive quality inspection at every stage with professional repackaging to meet your brand standards.</p>
+          <a href="#" class="btn">Learn More →</a>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 2.5rem;">
+        <a href="#" class="btn" style="background: transparent; border: 2px solid rgba(255,255,255,0.3); padding: 0.75rem 2rem; font-size: 1rem;">View All Services →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: CORE FOCUS (NEW) -->
+  <section class="core-section">
+    <span class="section-label new">NEW — Core Focus</span>
+    <div class="core-container">
+      <div class="core-header">
+        <div class="core-badge">Why Choose Us</div>
+        <h2>Our Core Strengths</h2>
+        <p>What sets Priselle apart as your trusted sourcing partner</p>
+      </div>
+      <div class="core-grid">
+        <div class="core-item">
+          <div class="icon-circle">🛡</div>
+          <h3>Reliability</h3>
+          <p>Every supplier in our network is thoroughly vetted for consistency, compliance, and quality standards.</p>
+          <a href="#" class="learn-link">Learn More →</a>
+        </div>
+        <div class="core-item">
+          <div class="icon-circle">⚡</div>
+          <h3>Efficiency</h3>
+          <p>Our streamlined process takes you from inquiry to delivery with minimal friction and maximum speed.</p>
+          <a href="#" class="learn-link">Learn More →</a>
+        </div>
+        <div class="core-item">
+          <div class="icon-circle">👁</div>
+          <h3>Transparency</h3>
+          <p>Clear pricing with no hidden fees. You'll always know exactly what you're paying for at every stage.</p>
+          <a href="#" class="learn-link">Learn More →</a>
+        </div>
+        <div class="core-item">
+          <div class="icon-circle">🌍</div>
+          <h3>Global Reach</h3>
+          <p>We ship to over 50 countries worldwide with reliable logistics partners and customs expertise.</p>
+          <a href="#" class="learn-link">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: INDUSTRIES GALLERY (kept — restyled) -->
+  <section class="gallery-placeholder">
+    <span class="section-label keep">KEPT — Industries Gallery (restyled)</span>
+    <h2>Industries We Serve</h2>
+    <p>Interactive WebGL carousel — kept with restyled card colors</p>
+    <div class="gallery-placeholder-note">⟵ Interactive drag gallery renders here with darker teal cards ⟶</div>
+  </section>
+
+  <!-- SECTION 7: CTA (kept) -->
+  <section class="cta-placeholder">
+    <span class="section-label keep">KEPT — CTA Section</span>
+    <div class="cta-card">
+      <h2>Get Started Today</h2>
+      <p>Let's discuss how we can help your business grow with reliable sourcing from China</p>
+      <button class="cta-btn">Get a Free Quote →</button>
+    </div>
+  </section>
+
+</body>
+</html>

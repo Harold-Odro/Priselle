@@ -8,7 +8,6 @@ import SectionCTA from '../components/SectionCTA'
 
 export default function AboutPage() {
   const stats = [
-    { number: 10, suffix: "+", label: "Years Industry Experience" },
     { number: 50, suffix: "+", label: "Vetted Suppliers" },
     { number: 24, suffix: "/7", label: "Client Support" },
     { number: 100, suffix: "%", label: "Commitment to Quality" }
@@ -40,20 +39,12 @@ export default function AboutPage() {
       side: "left"
     },
     {
-      year: "Future",
-      icon: Globe2,
-      title: "Global Expansion",
-      description: "Expanding our reach to serve clients across North America, Europe, Australia, and beyond.",
-      stat: "Your success, our mission",
-      side: "right"
-    },
-    {
       year: "Vision",
       icon: TrendingUp,
       title: "Sustainable Growth",
       description: "Building towards a future of sustainable sourcing and long-term partnerships with clients worldwide.",
       stat: "Growing together",
-      side: "left"
+      side: "right"
     }
   ]
 
@@ -125,7 +116,7 @@ export default function AboutPage() {
         {/* Animated Stats Section */}
         <section className="pt-16 pb-20 sm:pt-20 sm:pb-24" style={{background: 'var(--color-background-alt)'}}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
               {stats.map((stat, index) => (
                 <ScrollReveal key={index} delay={index * 100}>
                   <div className="text-center">
@@ -266,7 +257,7 @@ export default function AboutPage() {
                   <div className="relative">
                     <div className="relative aspect-[4/5] max-w-sm mx-auto md:mx-0">
                       <img
-                        src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=500&fit=crop"
+                        src="/images/founder.JPG"
                         alt="Priscilla Bervell - Founder"
                         className="w-full h-full object-cover rounded-2xl shadow-2xl"
                         width={400}

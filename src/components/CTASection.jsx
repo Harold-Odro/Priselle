@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 export default function CTASection() {
   const headlineRef = useRef(null)
@@ -132,19 +132,16 @@ export default function CTASection() {
 
   const contactInfo = [
     {
-      icon: Mail,
       emoji: '📧',
       label: 'prisellesourcing@gmail.com',
       href: 'mailto:prisellesourcing@gmail.com'
     },
     {
-      icon: Phone,
       emoji: '📞',
       label: '+233 54 486 1154',
       href: 'tel:+233544861154'
     },
     {
-      icon: MapPin,
       emoji: '📍',
       label: 'Accra, Ghana',
       href: null
@@ -188,32 +185,6 @@ export default function CTASection() {
         <Link
           to="/sourcing/contact"
           className="cta-button"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '10px',
-            backgroundColor: 'var(--color-primary)',
-            color: 'white',
-            padding: '18px 40px',
-            borderRadius: '12px',
-            fontSize: '1.1rem',
-            fontWeight: 600,
-            letterSpacing: '0.03em',
-            textDecoration: 'none',
-            textShadow: '0 1px 2px rgba(0, 0, 0, 0.15)',
-            transition: 'all 0.3s ease',
-            marginBottom: '30px'
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = 'var(--color-primary-dark)'
-            e.currentTarget.style.transform = 'translateY(-3px)'
-            e.currentTarget.style.boxShadow = '0 15px 35px rgba(47, 111, 115, 0.4)'
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = 'var(--color-primary)'
-            e.currentTarget.style.transform = 'translateY(0)'
-            e.currentTarget.style.boxShadow = 'none'
-          }}
         >
           Get a Free Quote
           <ArrowRight className="w-5 h-5" />
@@ -223,7 +194,7 @@ export default function CTASection() {
           display: 'flex',
           flexWrap: 'wrap',
           justifyContent: 'center',
-          gap: '15px'
+          gap: '8px'
         }}>
           {benefits.map((benefit, index) => (
             <span
@@ -232,9 +203,9 @@ export default function CTASection() {
               style={{
                 background: 'rgba(255, 255, 255, 0.1)',
                 color: 'rgba(255, 255, 255, 0.9)',
-                padding: '8px 16px',
+                padding: '6px 14px',
                 borderRadius: '20px',
-                fontSize: '0.85rem',
+                fontSize: '0.8rem',
                 border: '1px solid rgba(255, 255, 255, 0.1)'
               }}
             >
@@ -245,11 +216,11 @@ export default function CTASection() {
 
         <div className="contact-info" style={{
           display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-          gap: '30px',
-          marginTop: '40px',
-          paddingTop: '30px',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '12px',
+          marginTop: '30px',
+          paddingTop: '24px',
           borderTop: '1px solid rgba(255, 255, 255, 0.1)'
         }}>
           {contactInfo.map((item, index) => (
@@ -261,7 +232,7 @@ export default function CTASection() {
                 alignItems: 'center',
                 gap: '10px',
                 color: 'rgba(255, 255, 255, 0.9)',
-                fontSize: '0.9rem'
+                fontSize: '0.85rem'
               }}
             >
               <span style={{ fontSize: '1.2rem' }}>{item.emoji}</span>

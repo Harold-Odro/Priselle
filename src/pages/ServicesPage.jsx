@@ -1,4 +1,4 @@
-import { Search, FileCheck, Handshake, ShieldCheck, Package, CheckCircle, Globe, Users, Shield, Clock, Quote, ShoppingCart, Award, Stamp } from 'lucide-react'
+import { Search, FileCheck, Handshake, ShieldCheck, Package, CheckCircle, Globe, Users, Shield, Clock, Quote, ShoppingCart, Award, Warehouse, Plane, UserCheck } from 'lucide-react'
 import SEO from '../components/SEO'
 import ScrollReveal from '../components/ScrollReveal'
 import Breadcrumb from '../components/Breadcrumb'
@@ -31,15 +31,15 @@ export default function ServicesPage() {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Quality Control & Inspection",
-            "description": "Comprehensive inspection and quality assurance services"
+            "name": "Warehouse & Inventory Management",
+            "description": "Secure storage, inventory tracking, and consolidation services in China"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Logistics & Shipping",
+            "name": "Shipping and Logistics",
             "description": "End-to-end shipping solutions from China to your destination worldwide"
           }
         },
@@ -47,8 +47,24 @@ export default function ServicesPage() {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Work Visa Assistance",
+            "name": "China Concierge & Onboarding Services",
+            "description": "On-the-ground support for business visitors and new arrivals in China"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Work Visa Support",
             "description": "Professional guidance and support for China work visa applications and renewals"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Quality Control & Repackaging",
+            "description": "Comprehensive inspection and professional repackaging to meet your brand standards"
           }
         }
       ]
@@ -110,7 +126,7 @@ export default function ServicesPage() {
     {
       icon: ShoppingCart,
       title: "Product Sourcing",
-      description: "Find the perfect manufacturers and suppliers for your products in China's vast marketplace with our extensive network.",
+      description: "Find the perfect manufacturers and suppliers for your products in China's vast marketplace with our extensive network of verified partners.",
       features: [
         "Factory verification and assessment",
         "Competitive price negotiation",
@@ -119,36 +135,56 @@ export default function ServicesPage() {
       ],
     },
     {
-      icon: ShieldCheck,
-      title: "Quality Control & Inspection",
-      description: "Ensure your products meet international standards with our comprehensive inspection and quality assurance services.",
+      icon: Warehouse,
+      title: "Warehouse & Inventory Management",
+      description: "Secure storage and inventory management in China. We consolidate shipments, track stock levels, and prepare orders for dispatch.",
       features: [
-        "Pre-production sample approval",
-        "During production monitoring",
-        "Final random inspection",
-        "Detailed quality reports"
+        "Secure warehouse facilities",
+        "Inventory tracking and reporting",
+        "Order consolidation and batching",
+        "Stock level monitoring"
       ]
     },
     {
-      icon: Package,
-      title: "Logistics & Shipping",
+      icon: Plane,
+      title: "Shipping and Logistics",
       description: "Seamless end-to-end shipping solutions from China to your destination worldwide with full tracking and support.",
       features: [
         "Sea freight & air freight options",
         "Customs clearance assistance",
         "Real-time shipment tracking",
-        "Insurance coverage options"
       ]
     },
     {
-      icon: Stamp,
-      title: "Work Visa Assistance",
+      icon: Handshake,
+      title: "China Concierge & Onboarding Services",
+      description: "On-the-ground support for business visitors and new arrivals in China — from airport pickup to factory tours and city orientation.",
+      features: [
+        "Airport pickup and accommodation",
+        "Factory and supplier visit coordination",
+        "Translation and interpretation",
+        "City orientation and settling-in support"
+      ]
+    },
+    {
+      icon: UserCheck,
+      title: "Work Visa Support",
       description: "Professional guidance and support for China work visa applications, renewals, and documentation to help you work legally in China.",
       features: [
         "Work permit application support",
         "Visa renewal assistance",
         "Document preparation & review",
-        "Employer sponsorship guidance"
+      ]
+    },
+    {
+      icon: ShieldCheck,
+      title: "Quality Control & Repackaging",
+      description: "Comprehensive quality inspection at every production stage with professional repackaging to meet your brand and export standards.",
+      features: [
+        "Pre-production sample approval",
+        "During production monitoring",
+        "Final random inspection",
+        "Repackaging and labeling"
       ]
     }
   ]
@@ -162,7 +198,7 @@ export default function ServicesPage() {
     {
       icon: Users,
       title: "Bilingual Experts",
-      description: "English & Chinese speaking team with 10+ years experience"
+      description: "English & Chinese speaking team"
     },
     {
       icon: Shield,
@@ -180,8 +216,8 @@ export default function ServicesPage() {
     <>
       <SEO
         title="Our Services | Priselle Sourcing and Trade"
-        description="Comprehensive sourcing solutions including product sourcing, quality control & inspection, and logistics & shipping. Save up to 40% on procurement costs with our expert team."
-        keywords="product sourcing services, quality control China, logistics shipping, factory verification, supplier management, China trade services"
+        description="Comprehensive sourcing solutions including product sourcing, warehouse management, shipping & logistics, China concierge, work visa support, and quality control & repackaging."
+        keywords="product sourcing services, warehouse management China, logistics shipping, factory verification, supplier management, China trade services, work visa China, quality control"
         schema={schema}
       />
       <div style={{ background: 'var(--color-background)' }}>
@@ -310,8 +346,8 @@ export default function ServicesPage() {
               </div>
             </ScrollReveal>
 
-            {/* Bento Grid */}
-            <div className="grid md:grid-cols-2 gap-6">
+            {/* Bento Grid - 3 columns for 6 services */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {services.map((service, index) => {
                 const Icon = service.icon
 

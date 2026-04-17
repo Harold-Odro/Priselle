@@ -1,9 +1,11 @@
 // src/pages/Homepage.jsx
 // Homepage component - combines all sections to create the complete homepage
 import LandingSection from '../components/LandingSection'
-import HeroServicesSection from '../components/HeroServicesSection'
-import ServicesPreview from '../components/ServicesPreview'
-import IndustriesGallery from '../components/IndustriesGallery'
+import OverlappingCards from '../components/OverlappingCards'
+import CompanyOverview from '../components/CompanyOverview'
+import ServiceCards from '../components/ServiceCards'
+import CoreFocus from '../components/CoreFocus'
+import IndustriesSection from '../components/IndustriesSection'
 import CTASection from '../components/CTASection'
 import SEO from '../components/SEO'
 
@@ -48,9 +50,11 @@ export default function Homepage() {
       />
       <div className="relative w-full">
         <LandingSection />
-        <HeroServicesSection />
-        <ServicesPreview />
-        <IndustriesGallery />
+        <OverlappingCards />
+        <CompanyOverview />
+        <ServiceCards />
+        <CoreFocus />
+        <IndustriesSection />
         <CTASection />
       </div>
     </>

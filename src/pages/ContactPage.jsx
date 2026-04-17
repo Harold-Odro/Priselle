@@ -1,4 +1,4 @@
-import { Mail, MapPin, Clock } from 'lucide-react'
+import { Mail, MapPin, Phone } from 'lucide-react'
 import ContactForm from '../components/ContactForm'
 import SEO from '../components/SEO'
 import Breadcrumb from '../components/Breadcrumb'
@@ -71,7 +71,7 @@ export default function ContactPage() {
                 </a>
               </div>
 
-              {/* Headquarters Card */}
+              {/* Location Card */}
               <div className="card p-8 rounded-2xl text-center transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-2">
                 <div
                   className="w-16 h-16 mx-auto mb-6 rounded-xl flex items-center justify-center"
@@ -80,49 +80,52 @@ export default function ContactPage() {
                   <MapPin className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl mb-4" style={{color: 'var(--color-text)', fontWeight: 600}}>
-                  Headquarters
+                  Location
                 </h3>
                 <p className="mb-2" style={{color: 'var(--color-text-light)'}}>
-                  Priselle Sourcing and Trade
+                  Guangzhou, China
                 </p>
                 <p className="mb-6" style={{color: 'var(--color-text-light)'}}>
-                  Accra, Ghana
+                  Foshan, China
                 </p>
-                <a
-                  href="tel:+233544861154"
-                  className="inline-block font-semibold transition-colors"
-                  style={{color: 'var(--color-primary)'}}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-primary-dark)'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-primary)'}
-                >
-                  +233 54 486 1154 →
-                </a>
               </div>
 
-              {/* Working Hours Card */}
+              {/* WhatsApp & Call Card */}
               <div className="card p-8 rounded-2xl text-center transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-2">
                 <div
                   className="w-16 h-16 mx-auto mb-6 rounded-xl flex items-center justify-center"
                   style={{background: 'linear-gradient(145deg, var(--color-primary), var(--color-primary-light))'}}
                 >
-                  <Clock className="w-8 h-8 text-white" />
+                  <Phone className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl mb-4" style={{color: 'var(--color-text)', fontWeight: 600}}>
-                  Working hours
+                  WhatsApp Us
                 </h3>
-                <p className="mb-6" style={{color: 'var(--color-text-light)'}}>
-                  Available 24/7<br />
-                  We're always here to help
+                <p className="mb-4" style={{color: 'var(--color-text-light)'}}>
+                  <a
+                    href="https://wa.me/233544861154"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-semibold transition-colors"
+                    style={{color: 'var(--color-primary)'}}
+                    onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-primary-dark)'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-primary)'}
+                  >
+                    +233 54 486 1154 →
+                  </a>
                 </p>
-                <a
-                  href="mailto:prisellesourcing@gmail.com"
-                  className="inline-block font-semibold transition-colors"
-                  style={{color: 'var(--color-primary)'}}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-primary-dark)'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-primary)'}
-                >
-                  Email Us →
-                </a>
+                <p style={{color: 'var(--color-text-light)'}}>
+                  Or call us on{' '}
+                  <a
+                    href="tel:+8613006890774"
+                    className="font-semibold transition-colors"
+                    style={{color: 'var(--color-primary)'}}
+                    onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-primary-dark)'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-primary)'}
+                  >
+                    +86 130 0689 0774
+                  </a>
+                </p>
               </div>
             </div>
           </div>
