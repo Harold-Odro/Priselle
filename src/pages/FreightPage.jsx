@@ -90,7 +90,7 @@ const services = [
       </svg>
     ),
     title: 'RMB Payments',
-    desc: 'We handle RMB payments to Chinese suppliers on your behalf — no need for a Chinese bank account or currency exchange hassle.',
+    desc: 'We handle RMB payments to Chinese suppliers on your behalf.',
   },
 ]
 
