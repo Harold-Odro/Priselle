@@ -1,4 +1,5 @@
-import { Home as HomeIcon, Smartphone, HardHat, Sun, Car, Gift, Package, ArrowRight, CheckCircle2, Globe2 } from 'lucide-react'
+import { useState } from 'react'
+import { Home as HomeIcon, Smartphone, HardHat, Sun, Car, Gift, Package, ArrowRight, CheckCircle2, Globe2, Play, X } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import ScrollReveal from '../components/ScrollReveal'
 import Breadcrumb from '../components/Breadcrumb'
@@ -61,8 +62,24 @@ const whySourceBenefits = [
   "Competitive pricing through supplier network"
 ]
 
+const productVideos = [
+  {
+    title: "Product Showcase 1",
+    videoUrl: "/videos/priselle%201.mp4",
+  },
+  {
+    title: "Product Showcase 2",
+    videoUrl: "/videos/priselle%202.mp4",
+  },
+  {
+    title: "Product Showcase 3",
+    videoUrl: "/videos/priselle%203.mp4",
+  }
+]
+
 export default function WhatWeSource() {
   const navigate = useNavigate()
+  const [activeVideo, setActiveVideo] = useState(null)
 
   const handleRequestCategory = (categoryTitle) => {
     sessionStorage.setItem('selectedProduct', categoryTitle)
@@ -186,6 +203,103 @@ export default function WhatWeSource() {
           </div>
         </div>
       </section>
+
+      {/* Product Videos Section */}
+      <section className="py-20 sm:py-24 lg:py-32" style={{background: 'var(--color-background-alt)'}}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div className="text-center mb-16">
+              <span
+                className="inline-block px-4 py-1.5 rounded-full text-sm mb-4"
+                style={{
+                  backgroundColor: 'rgba(var(--color-primary-rgb, 0, 0, 0), 0.1)',
+                  color: 'var(--color-primary)',
+                  fontWeight: 600
+                }}
+              >
+                Product Videos
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-6" style={{color: 'var(--color-text)', fontWeight: 700}}>
+                See Our Products in Action
+              </h2>
+              <p className="text-lg max-w-2xl mx-auto" style={{color: 'var(--color-text-light)', fontWeight: 400}}>
+                Watch detailed showcases of the products we source across different categories
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {productVideos.map((video, index) => (
+              <ScrollReveal key={index} delay={index * 100}>
+                <div
+                  className="rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group cursor-pointer"
+                  style={{ backgroundColor: 'white' }}
+                  onClick={() => setActiveVideo(video)}
+                >
+                  <div className="relative aspect-video overflow-hidden">
+                    <video
+                      src={video.videoUrl}
+                      muted
+                      preload="metadata"
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center transition-all duration-300 group-hover:bg-black/40">
+                      <div
+                        className="w-16 h-16 rounded-full flex items-center justify-center transition-transform duration-300 group-hover:scale-110"
+                        style={{ background: 'var(--color-primary)' }}
+                      >
+                        <Play className="h-7 w-7 text-white ml-1" fill="white" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <h3 className="text-lg" style={{ color: 'var(--color-text)', fontWeight: 600 }}>
+                      {video.title}
+                    </h3>
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Video Modal */}
+      {activeVideo && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          style={{ backgroundColor: 'rgba(0, 0, 0, 0.85)' }}
+          onClick={() => setActiveVideo(null)}
+        >
+          <div
+            className="relative w-full max-w-4xl rounded-2xl overflow-hidden"
+            style={{ backgroundColor: 'black' }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setActiveVideo(null)}
+              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full flex items-center justify-center bg-black/50 hover:bg-black/70 transition-colors text-white"
+            >
+              <X className="h-5 w-5" />
+            </button>
+            <div className="aspect-video">
+              <video
+                src={activeVideo.videoUrl}
+                controls
+                autoPlay
+                className="w-full h-full"
+              >
+                Your browser does not support video playback.
+              </video>
+            </div>
+            <div className="p-4">
+              <h3 className="text-lg text-white" style={{ fontWeight: 600 }}>
+                {activeVideo.title}
+              </h3>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Why Source Section - Split Layout */}
       <section className="py-20 sm:py-24 lg:py-32" style={{background: 'var(--color-background-alt)'}}>

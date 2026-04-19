@@ -42,7 +42,7 @@ export default function Footer() {
                   onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-accent)'}
                   onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-gray-300)'}
                 >
-                  Portfolio
+                  Products
                 </Link>
               </li>
               <li>
@@ -163,28 +163,8 @@ export default function Footer() {
         <div className="pt-8 border-t" style={{borderColor: 'rgba(255, 255, 255, 0.1)'}}>
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-sm text-center sm:text-left" style={{color: 'var(--color-gray-300)', opacity: 0.8}}>
-              © 2025 Priselle Sourcing and Trade. All rights reserved.
+              © {new Date().getFullYear()} Priselle Sourcing and Trade. All rights reserved.
             </p>
-            <div className="flex items-center space-x-4 sm:space-x-6">
-              <a
-                href="#"
-                className="text-xs sm:text-sm transition-colors duration-200"
-                style={{color: 'var(--color-gray-300)', opacity: 0.8}}
-                onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-accent)'}
-                onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-gray-300)'}
-              >
-                Privacy Policy
-              </a>
-              <a
-                href="#"
-                className="text-xs sm:text-sm transition-colors duration-200"
-                style={{color: 'var(--color-gray-300)', opacity: 0.8}}
-                onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-accent)'}
-                onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-gray-300)'}
-              >
-                Terms of Service
-              </a>
-            </div>
           </div>
         </div>
       </div>
