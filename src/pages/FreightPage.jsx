@@ -46,7 +46,7 @@ const services = [
       </svg>
     ),
     title: 'Air Freight',
-    desc: 'Fast air shipping from China to Ghana for time-sensitive cargo. Delivery in 7–14 days with full tracking and customs clearance.',
+    desc: 'Fast air shipping from China to Ghana for time-sensitive cargo. Delivery in 3–7 days with full tracking and customs clearance.',
   },
   {
     icon: (
@@ -243,22 +243,6 @@ export default function FreightPage() {
           className="freight-hero__content"
           style={{ opacity: heroContentOpacity, y: smoothContentY }}
         >
-          {/* Top bar */}
-          <motion.nav
-            className="freight-hero__nav"
-            initial={{ opacity: 0, x: -20 }}
-            animate={animationsReady ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <Link to="/" className="freight-hero__back">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M19 12H5" />
-                <path d="M12 19l-7-7 7-7" />
-              </svg>
-              <span>Priselle Holdings</span>
-            </Link>
-          </motion.nav>
-
           {/* Hero text */}
           <div className="freight-hero__text">
             <motion.div
@@ -459,7 +443,7 @@ export default function FreightPage() {
             animate={pricingInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            Air Freight — 7–14 Days
+            Air Freight — 3–7 Days
           </motion.h3>
 
           <motion.div
@@ -497,7 +481,7 @@ export default function FreightPage() {
               <circle cx="12" cy="12" r="10" />
               <path d="M12 6v6l4 2" />
             </svg>
-            Sea: 35–45 days port to port · Air: 7–14 days
+            Sea: 35–45 days port to port · Air: 3–7 days
           </motion.p>
         </div>
       </section>

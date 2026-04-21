@@ -96,12 +96,9 @@ export default function Navigation() {
             {/* Logo - Left Aligned */}
             <Link to="/sourcing" className="flex-shrink-0 flex items-center group">
               <img
-                src="/images/logo.JPG"
+                src="/icons/priselle-icon.svg"
                 alt="Priselle"
-                className="h-10 w-auto rounded-lg"
-                style={{
-                  filter: isOnDark ? 'brightness(1.2)' : 'none'
-                }}
+                className="h-10 w-auto"
                 onError={(e) => {
                   e.target.style.display = 'none';
                 }}

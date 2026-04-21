@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { lazy, Suspense, useState } from 'react'
 import ErrorBoundary from './components/ErrorBoundary'
 import Layout from './components/Layout'
+import FreightLayout from './components/FreightLayout'
 import ScrollToTop from './components/ScrollToTop'
 import SplashScreen from './components/SplashScreen'
 import WhatsAppButton from './components/WhatsAppButton'
@@ -68,11 +69,15 @@ export default function App() {
                 <Route path="contact" element={<ContactPage />} />
               </Route>
 
-              {/* Placeholder routes for other divisions */}
+              {/* Souvenirs */}
               <Route path="/souvenirs" element={<SouvenirsPage />} />
-              <Route path="/freight" element={<FreightPage />} />
-              <Route path="/freight/services" element={<FreightServicesPage />} />
-              <Route path="/freight/contact" element={<FreightContactPage />} />
+
+              {/* Freight and Logistics routes - with navigation */}
+              <Route path="/freight" element={<FreightLayout />}>
+                <Route index element={<FreightPage />} />
+                <Route path="services" element={<FreightServicesPage />} />
+                <Route path="contact" element={<FreightContactPage />} />
+              </Route>
 
               {/* 404 page - no navigation */}
               <Route path="*" element={<NotFoundPage />} />

@@ -188,21 +188,6 @@ export default function FreightContactPage() {
         </div>
 
         <div className="freight-contact-hero__content">
-          <motion.nav
-            className="freight-hero__nav"
-            initial={{ opacity: 0, x: -20 }}
-            animate={animationsReady ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1 }}
-          >
-            <Link to="/freight" className="freight-hero__back">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M19 12H5" />
-                <path d="M12 19l-7-7 7-7" />
-              </svg>
-              <span>Freight Home</span>
-            </Link>
-          </motion.nav>
-
           <div style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', maxWidth: 640, margin: '0 auto', padding: '4rem 0 2rem' }}>
             <motion.div
               className="freight-hero__badge"

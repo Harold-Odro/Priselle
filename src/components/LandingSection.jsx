@@ -136,7 +136,7 @@ export default function LandingSection() {
         <div className="logo-wrapper">
           <div className="logo-glow"></div>
           <img
-            src="/images/logo.JPG"
+            src="/icons/priselle-icon.svg"
             alt="Priselle Logo"
             className="landing-logo"
             style={alreadyAnimated ? { opacity: 1, transform: 'translateY(0) scale(1)', animation: 'none' } : {}}

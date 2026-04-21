@@ -23,7 +23,7 @@ export default function SplashScreen({ onComplete }) {
         {/* Animated logo/brand mark */}
         <div className="splash-logo-container">
           <div className="splash-logo">
-            <div className="logo-circle"></div>
+            <img src="/icons/priselle-icon.svg" alt="Priselle" style={{ width: 80, height: 80 }} />
             <div className="logo-text">PRISELLE</div>
           </div>
           <div className="splash-tagline">Sourcing & Trade</div>

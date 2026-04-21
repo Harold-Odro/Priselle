@@ -1,9 +1,12 @@
-<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-label="Priselle">
+<svg viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg" aria-label="Priselle">
   <g transform="translate(25,25)">
     <rect x="0" y="0" width="150" height="150" rx="12" fill="#446546"/>
     <path d="M 30 120 L 30 30 L 68 30 Q 88 30 88 50 Q 88 70 68 70 L 50 70"
           fill="none" stroke="#F5F1E8" stroke-width="9" stroke-linecap="square"/>
     <path d="M 75 95 L 120 95 M 75 120 L 105 120" stroke="#6C8A56" stroke-width="9" stroke-linecap="square"/>
     <path d="M 75 80 L 75 120" stroke="#F5F1E8" stroke-width="9" stroke-linecap="square"/>
+  </g>
+  <g transform="translate(215, 118)">
+    <text font-family="Fraunces, Georgia, serif" font-weight="600" font-size="64" letter-spacing="-1.5" fill="#446546">Priselle</text>
   </g>
 </svg>

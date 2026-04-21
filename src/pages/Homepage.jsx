@@ -16,7 +16,7 @@ export default function Homepage() {
     "name": "Priselle Sourcing and Trade",
     "description": "Professional sourcing and trading services connecting global businesses with China's manufacturing excellence.",
     "url": "https://prisellesourcing.com",
-    "logo": "https://prisellesourcing.com/logo.png",
+    "logo": "https://prisellesourcing.com/icons/priselle-medium.png",
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+233-54-486-1154",

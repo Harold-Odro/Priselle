@@ -275,14 +275,14 @@ export default function AboutPage() {
                     <Quote className="h-12 w-12 mb-6 opacity-50" style={{color: 'var(--color-accent-light)'}} />
                     <blockquote className="text-xl sm:text-2xl lg:text-3xl text-white mb-8 leading-relaxed italic">
                       "Our mission is simple: to make international sourcing accessible,
-                      transparent, and reliable for businesses of all sizes."
+                      transparent, and reliable for everyone."
                     </blockquote>
                     <div className="space-y-2">
                       <h3 className="text-2xl text-white font-semibold">Priscilla Bervell</h3>
                       <p style={{color: 'var(--color-accent-light)'}}>Founder & CEO, Priselle Sourcing and Trade</p>
                     </div>
                     <p className="mt-6 leading-relaxed" style={{color: 'rgba(255, 255, 255, 0.85)'}}>
-                      With deep roots in both Chinese manufacturing and international trade,
+                      With deep roots in both Chinese manufacturing and an educational background in international trade,
                       Priscilla founded Priselle to bridge the gap between quality manufacturers
                       and businesses worldwide.
                     </p>

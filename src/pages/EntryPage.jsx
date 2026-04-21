@@ -23,25 +23,6 @@ const divisions = [
     accent: 'var(--color-primary)',
   },
   {
-    id: 'souvenirs',
-    title: 'Souvenirs & Gifts',
-    subtitle: 'Curated Collections',
-    description:
-      'Handpicked souvenirs, corporate gifts, and artisan treasures. Memorable keepsakes crafted with care and cultural authenticity.',
-    icon: (
-      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M24 4v8" />
-        <path d="M20 4h8" />
-        <rect x="8" y="12" width="32" height="8" rx="2" />
-        <path d="M12 20v20a4 4 0 004 4h16a4 4 0 004-4V20" />
-        <path d="M24 12v32" />
-      </svg>
-    ),
-    path: '/souvenirs',
-    cta: 'Browse Collection',
-    accent: 'var(--color-accent)',
-  },
-  {
     id: 'freight',
     title: 'Freight and Logistics',
     subtitle: 'Reliable Delivery',
@@ -59,6 +40,25 @@ const divisions = [
     path: '/freight',
     cta: 'Ship With Us',
     accent: '#5A7A8A',
+  },
+  {
+    id: 'souvenirs',
+    title: 'Souvenirs & Gifts',
+    subtitle: 'Curated Collections',
+    description:
+      'Handpicked souvenirs, corporate gifts, and artisan treasures. Memorable keepsakes crafted with care and cultural authenticity.',
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M24 4v8" />
+        <path d="M20 4h8" />
+        <rect x="8" y="12" width="32" height="8" rx="2" />
+        <path d="M12 20v20a4 4 0 004 4h16a4 4 0 004-4V20" />
+        <path d="M24 12v32" />
+      </svg>
+    ),
+    path: '/souvenirs',
+    cta: 'Browse Collection',
+    accent: 'var(--color-accent)',
   },
 ]
 
@@ -84,7 +84,7 @@ export default function EntryPage() {
         {/* Header */}
         <header className="entry-header">
           <div className="entry-logo-mark">
-            <span className="entry-logo-dot" />
+            <img src="/icons/priselle-icon.svg" alt="Priselle" style={{ width: 48, height: 48 }} />
           </div>
           <h1 className="entry-brand">PRISELLE</h1>
           <p className="entry-tagline">Choose Your Destination</p>
