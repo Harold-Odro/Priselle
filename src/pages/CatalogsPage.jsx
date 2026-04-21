@@ -1,8 +1,11 @@
-import { Download, FileText, Eye, ExternalLink } from 'lucide-react'
+import { useState } from 'react'
+import { FileText, ExternalLink, BookOpen, Home as HomeIcon, HardHat, Filter, ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import ScrollReveal from '../components/ScrollReveal'
 import Breadcrumb from '../components/Breadcrumb'
 import PageHero from '../components/PageHero'
 import SectionCTA from '../components/SectionCTA'
+import AnimatedCounter from '../components/AnimatedCounter'
 
 // Use `url` for externally hosted catalogs (Google Drive, etc.)
 // Use `filename` for locally hosted catalogs in /public/documents/
@@ -105,7 +108,27 @@ const catalogs = [
   },
 ]
 
+const categories = ['All', 'Construction & Building', 'Home & Living']
+
+const categoryIcons = {
+  'Construction & Building': HardHat,
+  'Home & Living': HomeIcon,
+}
+
+const stats = [
+  { number: 16, suffix: '', label: 'Product Catalogs' },
+  { number: 10, suffix: '+', label: 'Verified Suppliers' },
+  { number: 2, suffix: '', label: 'Industry Categories' },
+  { number: 1000, suffix: '+', label: 'Products Featured' },
+]
+
 export default function CatalogsPage() {
+  const [activeCategory, setActiveCategory] = useState('All')
+
+  const filtered = activeCategory === 'All'
+    ? catalogs
+    : catalogs.filter(c => c.category === activeCategory)
+
   return (
     <div style={{ background: 'var(--color-background)' }}>
       <PageHero
@@ -120,123 +143,253 @@ export default function CatalogsPage() {
         <Breadcrumb currentPage="Catalogs" />
       </div>
 
-      {/* Catalogs Grid */}
-      <section className="py-20 sm:py-24 lg:py-32" style={{ background: 'var(--color-background-alt)' }}>
+      {/* Stats Section */}
+      <section className="pt-16 pb-20 sm:pt-20 sm:pb-24" style={{ background: 'var(--color-background-alt)' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <ScrollReveal key={index} delay={index * 100}>
+                <div className="text-center">
+                  <div className="text-4xl sm:text-5xl mb-2" style={{ color: 'var(--color-primary)', fontWeight: 600 }}>
+                    <AnimatedCounter end={stat.number} suffix={stat.suffix} duration={2000} />
+                  </div>
+                  <div className="text-sm sm:text-base" style={{ color: 'var(--color-text-light)' }}>
+                    {stat.label}
+                  </div>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Category Filter + Catalogs Grid */}
+      <section className="py-20 sm:py-24 lg:py-32" style={{ background: 'var(--color-background)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal>
-            <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-4" style={{ color: 'var(--color-text)' }}>
+            <div className="text-center mb-6">
+              <span
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm mb-4"
+                style={{
+                  backgroundColor: 'rgba(47, 111, 115, 0.08)',
+                  color: 'var(--color-primary)',
+                  fontWeight: 600,
+                }}
+              >
+                <BookOpen className="h-4 w-4" />
                 Supplier Catalogs
+              </span>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-4" style={{ color: 'var(--color-text)', fontWeight: 700 }}>
+                Explore by Category
               </h2>
-              <p className="text-lg max-w-2xl mx-auto" style={{ color: 'var(--color-text-light)' }}>
+              <p className="text-lg max-w-2xl mx-auto mb-10" style={{ color: 'var(--color-text-light)' }}>
                 Each catalog contains detailed product information, specifications, and imagery directly from our factory partners.
               </p>
             </div>
           </ScrollReveal>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {catalogs.map((catalog, index) => {
-              const href = catalog.url || (catalog.filename ? `/documents/${catalog.filename}` : '')
-              return (
-              <ScrollReveal key={catalog.title} delay={index * 100}>
-                <div
-                  className="rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-xl h-full flex flex-col"
-                  style={{
-                    background: 'var(--color-surface)',
-                    border: '1px solid var(--color-border)',
-                    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.06)',
-                  }}
-                >
-                  {/* Card Header */}
-                  <div
-                    className="p-6 flex items-center gap-4"
+          {/* Filter Tabs */}
+          <ScrollReveal delay={100}>
+            <div className="flex flex-wrap justify-center gap-3 mb-14">
+              {categories.map((cat) => {
+                const isActive = activeCategory === cat
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => setActiveCategory(cat)}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300"
                     style={{
-                      background: 'linear-gradient(135deg, var(--color-primary), var(--color-primary-dark, #1a4a56))',
+                      backgroundColor: isActive ? 'var(--color-primary)' : 'transparent',
+                      color: isActive ? 'white' : 'var(--color-text-light)',
+                      border: isActive ? '2px solid var(--color-primary)' : '2px solid var(--color-border)',
+                      transform: isActive ? 'scale(1.05)' : 'scale(1)',
                     }}
                   >
-                    <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{ backgroundColor: 'rgba(255, 255, 255, 0.15)' }}
+                    {cat === 'All' ? <Filter className="h-4 w-4" /> : null}
+                    {cat === 'Construction & Building' ? <HardHat className="h-4 w-4" /> : null}
+                    {cat === 'Home & Living' ? <HomeIcon className="h-4 w-4" /> : null}
+                    {cat}
+                    <span
+                      className="ml-1 px-2 py-0.5 rounded-full text-xs"
+                      style={{
+                        backgroundColor: isActive ? 'rgba(255,255,255,0.2)' : 'var(--color-background-alt)',
+                        color: isActive ? 'white' : 'var(--color-text-muted)',
+                      }}
                     >
-                      <FileText className="h-6 w-6 text-white" />
+                      {cat === 'All' ? catalogs.length : catalogs.filter(c => c.category === cat).length}
+                    </span>
+                  </button>
+                )
+              })}
+            </div>
+          </ScrollReveal>
+
+          {/* Catalogs Grid */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+            {filtered.map((catalog, index) => {
+              const href = catalog.url || (catalog.filename ? `/documents/${catalog.filename}` : '')
+              const CategoryIcon = categoryIcons[catalog.category] || FileText
+              return (
+                <ScrollReveal key={catalog.title} delay={index * 80}>
+                  <div
+                    className="group rounded-2xl overflow-hidden transition-all duration-300 hover:-translate-y-1.5 h-full flex flex-col"
+                    style={{
+                      background: 'var(--color-surface)',
+                      border: '1px solid var(--color-border)',
+                      boxShadow: '0 4px 24px rgba(0, 0, 0, 0.05)',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.boxShadow = '0 12px 40px rgba(47, 111, 115, 0.12)'
+                      e.currentTarget.style.borderColor = 'var(--color-primary)'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.boxShadow = '0 4px 24px rgba(0, 0, 0, 0.05)'
+                      e.currentTarget.style.borderColor = 'var(--color-border)'
+                    }}
+                  >
+                    {/* Card Header */}
+                    <div
+                      className="p-6 relative overflow-hidden"
+                      style={{
+                        background: 'linear-gradient(135deg, var(--color-primary), #1a4a56)',
+                      }}
+                    >
+                      {/* Decorative circle */}
+                      <div
+                        className="absolute -top-8 -right-8 w-32 h-32 rounded-full transition-transform duration-500 group-hover:scale-125"
+                        style={{ backgroundColor: 'rgba(255, 255, 255, 0.06)' }}
+                      />
+                      <div
+                        className="absolute -bottom-12 -left-12 w-28 h-28 rounded-full"
+                        style={{ backgroundColor: 'rgba(255, 255, 255, 0.04)' }}
+                      />
+
+                      <div className="relative flex items-center gap-4">
+                        <div
+                          className="w-13 h-13 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3"
+                          style={{
+                            backgroundColor: 'rgba(255, 255, 255, 0.15)',
+                            backdropFilter: 'blur(8px)',
+                            width: '52px',
+                            height: '52px',
+                          }}
+                        >
+                          <FileText className="h-6 w-6 text-white" />
+                        </div>
+                        <div className="min-w-0">
+                          <h3
+                            className="text-lg text-white leading-tight truncate"
+                            style={{ fontWeight: 600 }}
+                          >
+                            {catalog.title}
+                          </h3>
+                          <div className="flex items-center gap-1.5 mt-1.5">
+                            <CategoryIcon className="h-3 w-3" style={{ color: 'rgba(255, 255, 255, 0.6)' }} />
+                            <span
+                              className="text-xs font-medium"
+                              style={{ color: 'rgba(255, 255, 255, 0.6)' }}
+                            >
+                              {catalog.category}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-white leading-tight">
-                        {catalog.title}
-                      </h3>
-                      <span
-                        className="text-xs font-medium mt-1 inline-block"
-                        style={{ color: 'rgba(255, 255, 255, 0.7)' }}
+
+                    {/* Card Body */}
+                    <div className="p-6 flex-1 flex flex-col">
+                      <p
+                        className="text-sm leading-relaxed flex-1 mb-6"
+                        style={{ color: 'var(--color-text-light)', lineHeight: '1.7' }}
                       >
-                        {catalog.category}
-                      </span>
-                    </div>
-                  </div>
+                        {catalog.description}
+                      </p>
 
-                  {/* Card Body */}
-                  <div className="p-6 flex-1 flex flex-col">
-                    <p className="text-sm leading-relaxed flex-1 mb-6" style={{ color: 'var(--color-text-light)' }}>
-                      {catalog.description}
-                    </p>
-
-                    {href ? (
-                      catalog.url ? (
+                      {href ? (
                         <a
                           href={href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+                          className="w-full inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-xl text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 group/btn"
                           style={{
                             backgroundColor: 'var(--color-primary)',
                             color: 'white',
                           }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.backgroundColor = '#1a4a56'
+                            e.currentTarget.style.boxShadow = '0 6px 20px rgba(47, 111, 115, 0.3)'
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.backgroundColor = 'var(--color-primary)'
+                            e.currentTarget.style.boxShadow = 'none'
+                          }}
                         >
                           <ExternalLink className="h-4 w-4" />
                           View Catalog
+                          <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover/btn:translate-x-0.5" />
                         </a>
                       ) : (
-                        <div className="flex gap-3">
-                          <a
-                            href={href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
-                            style={{
-                              backgroundColor: 'var(--color-primary)',
-                              color: 'white',
-                            }}
-                          >
-                            <Eye className="h-4 w-4" />
-                            View
-                          </a>
-                          <a
-                            href={href}
-                            download
-                            className="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-semibold transition-all duration-200 hover:-translate-y-0.5 border-2"
-                            style={{
-                              backgroundColor: 'transparent',
-                              color: 'var(--color-primary)',
-                              borderColor: 'var(--color-primary)',
-                            }}
-                          >
-                            <Download className="h-4 w-4" />
-                            Download
-                          </a>
+                        <div
+                          className="text-center py-3.5 rounded-xl text-sm font-medium"
+                          style={{ color: 'var(--color-text-muted)', backgroundColor: 'var(--color-background-alt)' }}
+                        >
+                          Coming soon
                         </div>
-                      )
-                    ) : (
-                      <div
-                        className="text-center py-3 rounded-xl text-sm font-medium"
-                        style={{ color: 'var(--color-text-muted)', backgroundColor: 'var(--color-background-alt)' }}
-                      >
-                        Coming soon
-                      </div>
-                    )}
+                      )}
+                    </div>
                   </div>
-                </div>
-              </ScrollReveal>
-            )})}
+                </ScrollReveal>
+              )
+            })}
           </div>
+
+          {/* Empty state */}
+          {filtered.length === 0 && (
+            <div className="text-center py-20">
+              <FileText className="h-16 w-16 mx-auto mb-4" style={{ color: 'var(--color-text-muted)' }} />
+              <p className="text-lg" style={{ color: 'var(--color-text-light)' }}>
+                No catalogs found in this category.
+              </p>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* Help Section */}
+      <section className="py-16 sm:py-20" style={{ background: 'var(--color-background-alt)' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <div
+              className="rounded-2xl p-8 sm:p-12 flex flex-col md:flex-row items-center gap-8"
+              style={{
+                background: 'var(--color-surface)',
+                border: '1px solid var(--color-border)',
+              }}
+            >
+              <div
+                className="w-16 h-16 rounded-2xl flex items-center justify-center flex-shrink-0"
+                style={{ background: 'linear-gradient(145deg, var(--color-primary), #1a4a56)' }}
+              >
+                <BookOpen className="h-8 w-8 text-white" />
+              </div>
+              <div className="flex-1 text-center md:text-left">
+                <h3 className="text-xl sm:text-2xl mb-2" style={{ color: 'var(--color-text)', fontWeight: 600 }}>
+                  Can't find what you're looking for?
+                </h3>
+                <p style={{ color: 'var(--color-text-light)' }}>
+                  We source from hundreds of verified factories across China. Tell us what you need and we'll find the right supplier catalog for you.
+                </p>
+              </div>
+              <Link
+                to="/sourcing/contact"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-base transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg flex-shrink-0"
+                style={{ backgroundColor: 'var(--color-primary)', color: 'white' }}
+              >
+                Contact Us
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
