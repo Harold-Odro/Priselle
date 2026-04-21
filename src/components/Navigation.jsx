@@ -6,6 +6,7 @@ const NAV_LINKS = [
   { to: '/sourcing', label: 'Home' },
   { to: '/sourcing/services', label: 'Services' },
   { to: '/sourcing/products', label: 'Products' },
+  { to: '/sourcing/catalogs', label: 'Catalogs' },
   { to: '/sourcing/about', label: 'About' },
   { to: '/sourcing/contact', label: 'Contact' }
 ];

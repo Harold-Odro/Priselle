@@ -220,6 +220,15 @@ export default function FreightPage() {
     <div className="freight-page">
       {/* ── HERO with Video Background ── */}
       <section className="freight-hero" ref={heroRef}>
+        {/* Back to Priselle Holdings */}
+        <Link to="/" className="landing-back">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M19 12H5" />
+            <path d="M12 19l-7-7 7-7" />
+          </svg>
+          <span>Priselle Holdings</span>
+        </Link>
+
         <motion.div
           className="freight-hero__video-wrap"
           style={{ y: smoothVideoY, scale: heroVideoScale }}
