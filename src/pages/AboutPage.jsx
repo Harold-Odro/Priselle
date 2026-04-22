@@ -452,30 +452,7 @@ export default function AboutPage() {
           primaryLabel="Start Your Project"
           secondaryLink="/sourcing/services"
           secondaryLabel="View Our Services"
-        >
-          <div
-            className="rounded-2xl p-8"
-            style={{backgroundColor: 'rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)'}}
-          >
-            <Quote className="h-10 w-10 mb-4 opacity-50" style={{color: 'var(--color-accent-light)'}} />
-            <p className="text-lg text-white mb-6 leading-relaxed italic">
-              "Working with Priselle transformed our supply chain. Their attention to quality
-              and transparent communication made sourcing from China seamless and stress-free."
-            </p>
-            <div className="flex items-center gap-4">
-              <div
-                className="w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold"
-                style={{backgroundColor: 'var(--color-accent)'}}
-              >
-                JM
-              </div>
-              <div>
-                <div className="text-white font-semibold">James Mitchell</div>
-                <div className="text-sm" style={{color: 'rgba(255, 255, 255, 0.7)'}}>CEO, Mitchell Imports</div>
-              </div>
-            </div>
-          </div>
-        </SectionCTA>
+        />
       </div>
     </>
   )

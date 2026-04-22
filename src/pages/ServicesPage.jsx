@@ -1,4 +1,4 @@
-import { Search, FileCheck, Handshake, ShieldCheck, Package, CheckCircle, Globe, Users, Shield, Clock, Quote, ShoppingCart, Award, Warehouse, Plane, UserCheck } from 'lucide-react'
+import { Search, FileCheck, Handshake, ShieldCheck, Package, CheckCircle, Globe, Users, Shield, Clock, ShoppingCart, Award, Warehouse, Plane, UserCheck } from 'lucide-react'
 import SEO from '../components/SEO'
 import ScrollReveal from '../components/ScrollReveal'
 import Breadcrumb from '../components/Breadcrumb'
@@ -500,30 +500,7 @@ export default function ServicesPage() {
           primaryLabel="Get a Free Quote"
           secondaryLink="/sourcing/products"
           secondaryLabel="View What We Source"
-        >
-          <div
-            className="rounded-2xl p-8"
-            style={{backgroundColor: 'rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)'}}
-          >
-            <Quote className="h-10 w-10 mb-4 opacity-50" style={{color: 'var(--color-accent-light)'}} />
-            <p className="text-lg text-white mb-6 leading-relaxed italic">
-              "From sourcing to delivery, Priselle handled everything seamlessly. Their quality control
-              saved us from potential issues and their communication was exceptional throughout."
-            </p>
-            <div className="flex items-center gap-4">
-              <div
-                className="w-12 h-12 rounded-full flex items-center justify-center text-white font-semibold"
-                style={{backgroundColor: 'var(--color-accent)'}}
-              >
-                SK
-              </div>
-              <div>
-                <div className="text-white font-semibold">Sarah Kim</div>
-                <div className="text-sm" style={{color: 'rgba(255, 255, 255, 0.7)'}}>Operations Director, TechGoods Inc.</div>
-              </div>
-            </div>
-          </div>
-        </SectionCTA>
+        />
       </div>
     </>
   )
