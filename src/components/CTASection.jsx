@@ -143,7 +143,7 @@ export default function CTASection() {
     },
     {
       emoji: '📍',
-      label: 'Accra, Ghana',
+      label: 'Accra · Guangzhou · Foshan',
       href: null
     }
   ]

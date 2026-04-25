@@ -116,7 +116,7 @@ export default function Footer() {
               <li className="flex items-start justify-center sm:justify-start space-x-2">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" style={{color: 'var(--color-accent)'}} />
                 <span className="text-sm" style={{color: 'var(--color-gray-300)', opacity: 0.9}}>
-                  Accra, Ghana
+                  Accra, Ghana · Guangzhou, China · Foshan, China
                 </span>
               </li>
             </ul>

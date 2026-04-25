@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link, useLocation } from 'react-router-dom'
 import { useAnimations } from '../contexts/AnimationContext'
 import { motion, useInView } from 'framer-motion'
 import emailjs from '@emailjs/browser'
@@ -9,7 +8,6 @@ import './FreightPage.css'
 
 export default function FreightContactPage() {
   const { animationsReady } = useAnimations()
-  const location = useLocation()
 
   const [formData, setFormData] = useState({
     name: '',
@@ -162,8 +160,8 @@ export default function FreightContactPage() {
     },
     {
       icon: <MapPin className="w-6 h-6" />,
-      title: 'Office',
-      detail: 'Accra, Ghana',
+      title: 'Offices',
+      detail: 'Accra · Guangzhou · Foshan',
       href: null,
     },
   ]

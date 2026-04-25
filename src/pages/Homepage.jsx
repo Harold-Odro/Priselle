@@ -25,11 +25,23 @@ export default function Homepage() {
       "areaServed": "Worldwide",
       "availableLanguage": ["English", "Chinese"]
     },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Accra",
-      "addressCountry": "Ghana"
-    },
+    "address": [
+      {
+        "@type": "PostalAddress",
+        "addressLocality": "Accra",
+        "addressCountry": "Ghana"
+      },
+      {
+        "@type": "PostalAddress",
+        "addressLocality": "Guangzhou",
+        "addressCountry": "China"
+      },
+      {
+        "@type": "PostalAddress",
+        "addressLocality": "Foshan",
+        "addressCountry": "China"
+      }
+    ],
     "sameAs": [
       "https://www.linkedin.com/company/priselle-sourcing"
     ],

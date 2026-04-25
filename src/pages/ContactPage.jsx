@@ -13,11 +13,23 @@ export default function ContactPage() {
       "name": "Priselle Sourcing and Trade",
       "email": "info@priselleholdings.com",
       "telephone": ["+233-54-486-1154", "+86-130-0689-0774"],
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Accra",
-        "addressCountry": "Ghana"
-      }
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "addressLocality": "Accra",
+          "addressCountry": "Ghana"
+        },
+        {
+          "@type": "PostalAddress",
+          "addressLocality": "Guangzhou",
+          "addressCountry": "China"
+        },
+        {
+          "@type": "PostalAddress",
+          "addressLocality": "Foshan",
+          "addressCountry": "China"
+        }
+      ]
     }
   };
 
@@ -82,6 +94,9 @@ export default function ContactPage() {
                 <h3 className="text-xl mb-4" style={{color: 'var(--color-text)', fontWeight: 600}}>
                   Location
                 </h3>
+                <p className="mb-2" style={{color: 'var(--color-text-light)'}}>
+                  Accra, Ghana
+                </p>
                 <p className="mb-2" style={{color: 'var(--color-text-light)'}}>
                   Guangzhou, China
                 </p>
