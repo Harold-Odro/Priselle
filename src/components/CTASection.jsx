@@ -133,8 +133,8 @@ export default function CTASection() {
   const contactInfo = [
     {
       emoji: '📧',
-      label: 'prisellesourcing@gmail.com',
-      href: 'mailto:prisellesourcing@gmail.com'
+      label: 'info@priselleholdings.com',
+      href: 'mailto:info@priselleholdings.com'
     },
     {
       emoji: '📞',

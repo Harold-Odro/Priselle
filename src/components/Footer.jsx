@@ -92,13 +92,13 @@ export default function Footer() {
               <li className="flex items-start justify-center sm:justify-start space-x-2">
                 <Mail className="h-4 w-4 mt-0.5 flex-shrink-0" style={{color: 'var(--color-accent)'}} />
                 <a
-                  href="mailto:prisellesourcing@gmail.com"
+                  href="mailto:info@priselleholdings.com"
                   className="text-sm transition-colors duration-200 break-all sm:break-normal"
                   style={{color: 'var(--color-gray-300)', opacity: 0.9}}
                   onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-accent)'}
                   onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-gray-300)'}
                 >
-                  prisellesourcing@gmail.com
+                  info@priselleholdings.com
                 </a>
               </li>
               <li className="flex items-start justify-center sm:justify-start space-x-2">

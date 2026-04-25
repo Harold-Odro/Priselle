@@ -79,7 +79,7 @@ export default function FreightContactPage() {
     }
 
     if (!isEmailJSConfigured) {
-      setToast({ message: 'Contact form is currently unavailable. Please email us directly at prisellesourcing@gmail.com', type: 'error' })
+      setToast({ message: 'Contact form is currently unavailable. Please email us directly at info@priselleholdings.com', type: 'error' })
       return
     }
 
@@ -87,7 +87,7 @@ export default function FreightContactPage() {
 
     try {
       const templateParams = {
-        to_email: 'prisellesourcing@gmail.com',
+        to_email: 'info@priselleholdings.com',
         from_name: formData.name,
         from_email: formData.email,
         product: formData.product,
@@ -151,8 +151,8 @@ export default function FreightContactPage() {
     {
       icon: <Mail className="w-6 h-6" />,
       title: 'Email Us',
-      detail: 'prisellesourcing@gmail.com',
-      href: 'mailto:prisellesourcing@gmail.com',
+      detail: 'info@priselleholdings.com',
+      href: 'mailto:info@priselleholdings.com',
     },
     {
       icon: <Phone className="w-6 h-6" />,

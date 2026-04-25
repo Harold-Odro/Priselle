@@ -125,7 +125,7 @@ export default function ContactForm() {
 
     // Check if EmailJS is configured
     if (!isEmailJSConfigured) {
-      showToast('Contact form is currently unavailable. Please email us directly at prisellesourcing@gmail.com', 'error')
+      showToast('Contact form is currently unavailable. Please email us directly at info@priselleholdings.com', 'error')
       return
     }
 
@@ -133,7 +133,7 @@ export default function ContactForm() {
 
     try {
       const templateParams = {
-        to_email: 'prisellesourcing@gmail.com',
+        to_email: 'info@priselleholdings.com',
         from_name: formData.name,
         from_email: formData.email,
         product: formData.product,

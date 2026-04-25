@@ -11,7 +11,7 @@ export default function ContactPage() {
     "mainEntity": {
       "@type": "Organization",
       "name": "Priselle Sourcing and Trade",
-      "email": "prisellesourcing@gmail.com",
+      "email": "info@priselleholdings.com",
       "telephone": ["+233-54-486-1154", "+86-130-0689-0774"],
       "address": {
         "@type": "PostalAddress",
@@ -25,7 +25,7 @@ export default function ContactPage() {
     <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
       <SEO
         title="Contact Us | Get a Free Consultation | Priselle Sourcing"
-        description="Contact Priselle Sourcing and Trade for expert sourcing advice. Email: prisellesourcing@gmail.com | Phone: +86-130-0689-0774. 24-hour response time guaranteed."
+        description="Contact Priselle Sourcing and Trade for expert sourcing advice. Email: info@priselleholdings.com | Phone: +86-130-0689-0774. 24-hour response time guaranteed."
         keywords="contact sourcing company, China sourcing consultation, free sourcing quote, trade consultation"
         schema={schema}
       />
@@ -61,13 +61,13 @@ export default function ContactPage() {
                   Send us your inquiry and we'll respond within 24 hours
                 </p>
                 <a
-                  href="mailto:prisellesourcing@gmail.com"
+                  href="mailto:info@priselleholdings.com"
                   className="inline-block font-semibold transition-colors"
                   style={{color: 'var(--color-primary)'}}
                   onMouseEnter={(e) => e.currentTarget.style.color = 'var(--color-primary-dark)'}
                   onMouseLeave={(e) => e.currentTarget.style.color = 'var(--color-primary)'}
                 >
-                  prisellesourcing@gmail.com →
+                  info@priselleholdings.com →
                 </a>
               </div>
 

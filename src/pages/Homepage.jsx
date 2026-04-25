@@ -21,7 +21,7 @@ export default function Homepage() {
       "@type": "ContactPoint",
       "telephone": "+233-54-486-1154",
       "contactType": "Customer Service",
-      "email": "prisellesourcing@gmail.com",
+      "email": "info@priselleholdings.com",
       "areaServed": "Worldwide",
       "availableLanguage": ["English", "Chinese"]
     },
