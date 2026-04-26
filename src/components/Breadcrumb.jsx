@@ -3,7 +3,7 @@ import { ChevronRight, Home } from 'lucide-react'
 
 export default function Breadcrumb({ currentPage }) {
   const location = useLocation()
-  const baseUrl = 'https://prisellesourcing.com'
+  const baseUrl = 'https://priselleholdings.com'
 
   // Generate JSON-LD structured data for breadcrumbs
   const breadcrumbSchema = {

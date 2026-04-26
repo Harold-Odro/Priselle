@@ -2,6 +2,7 @@ import { useAnimations } from '../contexts/AnimationContext'
 import { Link } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform, useInView, useSpring } from 'framer-motion'
+import SEO from '../components/SEO'
 import './FreightPage.css'
 
 const stats = [
@@ -216,8 +217,43 @@ export default function FreightPage() {
     },
   }
 
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Priselle Freight & Logistics',
+    description: 'The freight and logistics arm of Priselle Holdings — sea and air shipping from China to Ghana with warehouse management, customs clearance, and quality control.',
+    url: 'https://priselleholdings.com/freight',
+    logo: 'https://priselleholdings.com/icons/priselle-medium.png',
+    parentOrganization: {
+      '@type': 'Organization',
+      name: 'Priselle Holdings',
+      url: 'https://priselleholdings.com'
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+233-54-486-1154',
+      contactType: 'Customer Service',
+      email: 'info@priselleholdings.com',
+      areaServed: ['Ghana', 'China'],
+      availableLanguage: ['English', 'Chinese']
+    },
+    address: [
+      { '@type': 'PostalAddress', addressLocality: 'Accra', addressCountry: 'Ghana' },
+      { '@type': 'PostalAddress', addressLocality: 'Guangzhou', addressCountry: 'China' },
+      { '@type': 'PostalAddress', addressLocality: 'Foshan', addressCountry: 'China' }
+    ]
+  }
+
   return (
     <div className="freight-page">
+      <SEO
+        title="Priselle Freight & Logistics | China to Ghana Shipping"
+        description="The freight arm of Priselle Holdings. Sea and air shipping from China to Ghana — warehouse management, customs clearance, and reliable on-time delivery."
+        keywords="China to Ghana shipping, freight Ghana, sea freight, air freight, Priselle Freight, Priselle Holdings, logistics China"
+        siteName="Priselle Freight & Logistics"
+        canonicalUrl="https://priselleholdings.com/freight"
+        schema={schema}
+      />
       {/* ── HERO with Video Background ── */}
       <section className="freight-hero" ref={heroRef}>
         {/* Back to Priselle Holdings */}

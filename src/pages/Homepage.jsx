@@ -13,10 +13,15 @@ export default function Homepage() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Priselle Sourcing and Trade",
-    "description": "Professional sourcing and trading services connecting global businesses with China's manufacturing excellence.",
-    "url": "https://prisellesourcing.com",
-    "logo": "https://prisellesourcing.com/icons/priselle-medium.png",
+    "name": "Priselle Sourcing & Trade",
+    "description": "The sourcing and trading arm of Priselle Holdings — connecting global businesses with China's manufacturing excellence.",
+    "url": "https://priselleholdings.com/sourcing",
+    "logo": "https://priselleholdings.com/icons/priselle-medium.png",
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Priselle Holdings",
+      "url": "https://priselleholdings.com"
+    },
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+233-54-486-1154",
@@ -44,20 +49,17 @@ export default function Homepage() {
     ],
     "sameAs": [
       "https://www.linkedin.com/company/priselle-sourcing"
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "500"
-    }
+    ]
   };
 
   return (
     <>
       <SEO
-        title="Priselle Sourcing and Trade | China Sourcing & Manufacturing Solutions"
-        description="Professional sourcing and trading services connecting global businesses with China's manufacturing excellence. Quality products, competitive prices, and reliable partnerships. 500+ projects completed."
-        keywords="China sourcing, product sourcing, manufacturing China, wholesale supplier, quality control China, logistics shipping, trade services, global sourcing, worldwide shipping"
+        title="Priselle Sourcing & Trade | A Priselle Holdings Company"
+        description="The sourcing and trading arm of Priselle Holdings. Connecting global businesses with China's manufacturing excellence — quality products, competitive prices, reliable partnerships."
+        keywords="Priselle Sourcing, China sourcing, product sourcing, manufacturing China, wholesale supplier, quality control, trade services, Priselle Holdings"
+        canonicalUrl="https://priselleholdings.com/sourcing"
+        siteName="Priselle Sourcing & Trade"
         schema={schema}
       />
       <div className="relative w-full">

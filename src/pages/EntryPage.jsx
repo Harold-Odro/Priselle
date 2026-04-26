@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { useAnimations } from '../contexts/AnimationContext'
+import SEO from '../components/SEO'
 import './EntryPage.css'
 
 const divisions = [
@@ -66,8 +67,54 @@ export default function EntryPage() {
   const navigate = useNavigate()
   const { animationsReady } = useAnimations()
 
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Priselle Holdings',
+    url: 'https://priselleholdings.com',
+    logo: 'https://priselleholdings.com/icons/priselle-medium.png',
+    description: 'Parent group behind Priselle Sourcing & Trade and Priselle Freight & Logistics — connecting Ghana and global businesses with China\'s manufacturing and shipping networks.',
+    address: [
+      { '@type': 'PostalAddress', addressLocality: 'Accra', addressCountry: 'Ghana' },
+      { '@type': 'PostalAddress', addressLocality: 'Guangzhou', addressCountry: 'China' },
+      { '@type': 'PostalAddress', addressLocality: 'Foshan', addressCountry: 'China' }
+    ],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+233-54-486-1154',
+      contactType: 'Customer Service',
+      email: 'info@priselleholdings.com',
+      areaServed: 'Worldwide',
+      availableLanguage: ['English', 'Chinese']
+    },
+    subOrganization: [
+      {
+        '@type': 'Organization',
+        name: 'Priselle Sourcing & Trade',
+        url: 'https://priselleholdings.com/sourcing'
+      },
+      {
+        '@type': 'Organization',
+        name: 'Priselle Freight & Logistics',
+        url: 'https://priselleholdings.com/freight'
+      },
+      {
+        '@type': 'Organization',
+        name: 'Priselle Souvenirs & Gifts',
+        url: 'https://priselleholdings.com/souvenirs'
+      }
+    ]
+  }
+
   return (
     <div className="entry-page">
+      <SEO
+        title="Priselle Holdings | Sourcing, Freight & Trade Solutions"
+        description="The parent group behind Priselle Sourcing & Trade and Priselle Freight & Logistics. Connecting Ghana and global businesses with China's manufacturing and shipping networks."
+        keywords="Priselle Holdings, Priselle, sourcing, freight, logistics, Ghana, China, trading"
+        canonicalUrl="https://priselleholdings.com/"
+        schema={schema}
+      />
       {/* Atmospheric background layers */}
       <div className="entry-bg">
         <div className="entry-bg-gradient" />

@@ -163,7 +163,7 @@ export default function Footer() {
         <div className="pt-8 border-t" style={{borderColor: 'rgba(255, 255, 255, 0.1)'}}>
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-sm text-center sm:text-left" style={{color: 'var(--color-gray-300)', opacity: 0.8}}>
-              © {new Date().getFullYear()} Priselle Sourcing and Trade. All rights reserved.
+              © {new Date().getFullYear()} Priselle Holdings. All rights reserved.
             </p>
           </div>
         </div>

@@ -84,9 +84,11 @@ export default function AboutPage() {
   return (
     <>
       <SEO
-        title="About Us | Priselle Sourcing and Trade"
-        description="Learn about Priselle Sourcing and Trade - your trusted partner for China sourcing with experienced professionals and vetted supplier networks."
-        keywords="about priselle, china sourcing company, sourcing partner, manufacturing solutions, trade services"
+        title="About Priselle Sourcing & Trade | A Priselle Holdings Company"
+        description="Learn about Priselle Sourcing & Trade — the sourcing arm of Priselle Holdings. Trusted China sourcing partner with experienced professionals and vetted supplier networks."
+        keywords="about Priselle, Priselle Holdings, china sourcing company, sourcing partner, manufacturing solutions, trade services"
+        siteName="Priselle Sourcing & Trade"
+        canonicalUrl="https://priselleholdings.com/sourcing/about"
       />
 
       <div style={{ background: 'var(--color-background)' }}>
@@ -279,7 +281,7 @@ export default function AboutPage() {
                     </blockquote>
                     <div className="space-y-2">
                       <h3 className="text-2xl text-white font-semibold">Priscilla Bervell</h3>
-                      <p style={{color: 'var(--color-accent-light)'}}>Founder & CEO, Priselle Sourcing and Trade</p>
+                      <p style={{color: 'var(--color-accent-light)'}}>Founder & CEO, Priselle Holdings</p>
                     </div>
                     <p className="mt-6 leading-relaxed" style={{color: 'rgba(255, 255, 255, 0.85)'}}>
                       With deep roots in both Chinese manufacturing and an educational background in international trade,

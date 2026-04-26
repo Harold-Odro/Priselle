@@ -12,7 +12,12 @@ export default function ServicesPage() {
     "serviceType": "Product Sourcing and Trade Services",
     "provider": {
       "@type": "Organization",
-      "name": "Priselle Sourcing and Trade"
+      "name": "Priselle Sourcing & Trade",
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Priselle Holdings",
+        "url": "https://priselleholdings.com"
+      }
     },
     "areaServed": "Worldwide",
     "hasOfferCatalog": {
@@ -215,9 +220,11 @@ export default function ServicesPage() {
   return (
     <>
       <SEO
-        title="Our Services | Priselle Sourcing and Trade"
-        description="Comprehensive sourcing solutions including product sourcing, warehouse management, shipping & logistics, China concierge, work visa support, and quality control & repackaging."
-        keywords="product sourcing services, warehouse management China, logistics shipping, factory verification, supplier management, China trade services, work visa China, quality control"
+        title="Our Services | Priselle Sourcing & Trade"
+        description="Comprehensive sourcing solutions from Priselle Sourcing & Trade — product sourcing, warehouse management, shipping & logistics, China concierge, work visa support, and quality control."
+        keywords="product sourcing services, warehouse management China, logistics shipping, factory verification, supplier management, Priselle services, work visa China, quality control"
+        siteName="Priselle Sourcing & Trade"
+        canonicalUrl="https://priselleholdings.com/sourcing/services"
         schema={schema}
       />
       <div style={{ background: 'var(--color-background)' }}>

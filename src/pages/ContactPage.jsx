@@ -10,7 +10,12 @@ export default function ContactPage() {
     "@type": "ContactPage",
     "mainEntity": {
       "@type": "Organization",
-      "name": "Priselle Sourcing and Trade",
+      "name": "Priselle Sourcing & Trade",
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Priselle Holdings",
+        "url": "https://priselleholdings.com"
+      },
       "email": "info@priselleholdings.com",
       "telephone": ["+233-54-486-1154", "+86-130-0689-0774"],
       "address": [
@@ -36,9 +41,11 @@ export default function ContactPage() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', flex: 1 }}>
       <SEO
-        title="Contact Us | Get a Free Consultation | Priselle Sourcing"
-        description="Contact Priselle Sourcing and Trade for expert sourcing advice. Email: info@priselleholdings.com | Phone: +86-130-0689-0774. 24-hour response time guaranteed."
-        keywords="contact sourcing company, China sourcing consultation, free sourcing quote, trade consultation"
+        title="Contact Priselle Sourcing & Trade | Free Consultation"
+        description="Get in touch with Priselle Sourcing & Trade — the sourcing arm of Priselle Holdings. Email info@priselleholdings.com or call +233 54 486 1154. 24-hour response time."
+        keywords="contact Priselle, China sourcing consultation, free sourcing quote, Priselle Holdings contact"
+        siteName="Priselle Sourcing & Trade"
+        canonicalUrl="https://priselleholdings.com/sourcing/contact"
         schema={schema}
       />
       <>

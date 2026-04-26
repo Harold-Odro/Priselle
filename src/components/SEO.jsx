@@ -1,13 +1,14 @@
 import { useEffect } from 'react';
 
 export default function SEO({
-  title = 'Priselle Sourcing and Trade',
-  description = 'Professional sourcing and trading services connecting global businesses with China\'s manufacturing excellence. Quality products, competitive prices, reliable partnerships.',
-  keywords = 'sourcing, China sourcing, product sourcing, manufacturing, trade, wholesale, quality control, logistics, shipping',
+  title = 'Priselle Holdings',
+  description = 'Priselle Holdings — the parent group behind Priselle Sourcing & Trade and Priselle Freight & Logistics. Connecting Ghana and global businesses with China\'s manufacturing and shipping networks.',
+  keywords = 'Priselle Holdings, Priselle, sourcing, freight, logistics, China sourcing, Ghana freight, trading services',
   ogImage = '/og-image.jpg',
   ogType = 'website',
   canonicalUrl = '',
-  schema = null
+  schema = null,
+  siteName = 'Priselle Holdings'
 }) {
   useEffect(() => {
     const createdElements = [];
@@ -43,7 +44,7 @@ export default function SEO({
     updateMetaTag('og:type', ogType, true);
     updateMetaTag('og:image', window.location.origin + ogImage, true);
     updateMetaTag('og:url', window.location.href, true);
-    updateMetaTag('og:site_name', 'Priselle Sourcing and Trade', true);
+    updateMetaTag('og:site_name', siteName, true);
 
     // Twitter Card tags
     updateMetaTag('twitter:card', 'summary_large_image');
@@ -54,7 +55,7 @@ export default function SEO({
     // Additional SEO tags
     updateMetaTag('robots', 'index, follow');
     updateMetaTag('language', 'English');
-    updateMetaTag('author', 'Priselle Sourcing and Trade');
+    updateMetaTag('author', siteName);
 
     // Canonical URL
     let canonicalLink = document.querySelector('link[rel="canonical"]');
@@ -92,7 +93,7 @@ export default function SEO({
         }
       });
     };
-  }, [title, description, keywords, ogImage, ogType, canonicalUrl, schema]);
+  }, [title, description, keywords, ogImage, ogType, canonicalUrl, schema, siteName]);
 
   return null;
 }
