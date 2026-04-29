@@ -169,7 +169,9 @@ export default function LandingSection() {
 
         {/* Value proposition */}
         <p className="landing-value" style={alreadyAnimated ? { opacity: 1 } : {}}>
-          Connecting Global Businesses with China's Manufacturing Excellence
+          Curated from the Source;
+          <br />
+          Less Stress, More Access.
         </p>
       </div>
 

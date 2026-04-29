@@ -465,9 +465,24 @@
 
 .freight-pricing__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
-  margin-bottom: 2.5rem;
+  margin: 0 auto 2.5rem;
+  max-width: 720px;
+}
+
+.freight-pricing__grid--air {
+  grid-template-columns: 1fr;
+  max-width: 360px;
+}
+
+.freight-pricing__note {
+  text-align: center;
+  margin: -1rem 0 2.5rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .freight-pricing__card {
@@ -872,10 +887,6 @@ a.freight-contact-card__detail:hover {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .freight-pricing__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .freight-cta__inner {
     grid-template-columns: 1fr;
     gap: 3rem;
@@ -949,6 +960,11 @@ a.freight-contact-card__detail:hover {
   .freight-pricing__grid {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+  }
+
+  .freight-pricing__grid--air {
+    grid-template-columns: 1fr;
+    max-width: 320px;
   }
 
   .freight-pricing__price {

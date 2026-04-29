@@ -107,12 +107,10 @@ const services = [
 const seaPricing = [
   { route: 'CBM to Accra', price: '$240' },
   { route: 'CBM to Kumasi', price: '$260' },
-  { route: 'Less than 1 CBM to Accra', price: '$245' },
-  { route: 'Less than 1 CBM to Kumasi', price: '$265' },
 ]
 
 const airPricing = [
-  { route: 'Air Freight to Ghana', price: '$20', unit: 'per kg' },
+  { route: 'Air Freight to Ghana', price: '$17', unit: 'per kg' },
 ]
 
 const process = [
@@ -304,7 +302,7 @@ export default function FreightServicesPage() {
           </motion.h3>
 
           <motion.div
-            className="freight-pricing__grid"
+            className="freight-pricing__grid freight-pricing__grid--sea"
             initial="hidden"
             animate={pricingInView ? 'visible' : 'hidden'}
             variants={staggerContainer}
@@ -328,6 +326,15 @@ export default function FreightServicesPage() {
             ))}
           </motion.div>
 
+          <motion.p
+            className="freight-pricing__note"
+            initial={{ opacity: 0, y: 20 }}
+            animate={pricingInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            Minimum CBM is 0.01.
+          </motion.p>
+
           {/* Air Freight Rates */}
           <motion.h3
             style={{ fontFamily: "'Playfair Display', Georgia, serif", fontSize: '1.3rem', fontWeight: 500, textAlign: 'center', margin: '2.5rem 0 1.25rem', color: 'var(--gl-text)' }}
@@ -339,7 +346,7 @@ export default function FreightServicesPage() {
           </motion.h3>
 
           <motion.div
-            className="freight-pricing__grid"
+            className="freight-pricing__grid freight-pricing__grid--air"
             initial="hidden"
             animate={pricingInView ? 'visible' : 'hidden'}
             variants={staggerContainer}
