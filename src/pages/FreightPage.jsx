@@ -13,8 +13,10 @@ const stats = [
 ]
 
 const seaPricing = [
-  { route: 'CBM to Accra', price: '$240' },
-  { route: 'CBM to Kumasi', price: '$260' },
+  { route: 'CBM to Accra', price: '$255' },
+  { route: 'CBM to Kumasi', price: '$270' },
+  { route: 'Less than 1 CBM to Accra', price: '$265' },
+  { route: 'Less than 1 CBM to Kumasi', price: '$280' },
 ]
 
 const airPricing = [

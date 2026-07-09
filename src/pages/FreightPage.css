@@ -471,6 +471,11 @@
   max-width: 720px;
 }
 
+.freight-pricing__grid--sea {
+  grid-template-columns: repeat(4, 1fr);
+  max-width: none;
+}
+
 .freight-pricing__grid--air {
   grid-template-columns: 1fr;
   max-width: 360px;
@@ -885,6 +890,11 @@ a.freight-contact-card__detail:hover {
 @media (max-width: 1024px) {
   .freight-services__grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .freight-pricing__grid--sea {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 720px;
   }
 
   .freight-cta__inner {
