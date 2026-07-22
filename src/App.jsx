@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { lazy, Suspense, useState } from 'react'
+import { Analytics } from '@vercel/analytics/react'
 import ErrorBoundary from './components/ErrorBoundary'
 import Layout from './components/Layout'
 import FreightLayout from './components/FreightLayout'
@@ -92,6 +93,7 @@ export default function App() {
             </>
           )}
         </Router>
+        <Analytics />
       </AnimationContext.Provider>
     </ErrorBoundary>
   )
